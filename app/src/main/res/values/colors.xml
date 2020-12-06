@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4e67eb</color>
+    <color name="colorPrimaryDark">#1D1033</color>
+    <color name="colorAccent">#f0f4ff</color>
+    <color name="colorWhite">#ffffff</color>
+
+    <color name="colorButtonGradientPurple">#5E50E1</color>
+    <color name="colorButtonGradientDarkBlue">#466FDC</color>
+    <color name="colorButtonGradientLightBlue">#02C0CC</color>
+
+    <color name="colorDarkInput">#535864</color>
+</resources>
