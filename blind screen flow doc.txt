@@ -1,0 +1,5 @@
+Blind:-
+Splash -> PreCategory Fragmnet (take input - if blind skip categoryfragment and intent to phone auth fragment, if not blind intent to selectcategory screen)
+
+-> precat- > phone auth -> otp fill- > register-> home
+

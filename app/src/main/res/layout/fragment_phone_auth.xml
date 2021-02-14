@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/phone_auth_container"
+    tools:context=".PhoneAuthFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:translationY="60dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/linear"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_above="@+id/phone_number_tl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montbold"
+                android:text="Enter Phone Number"
+                android:textAlignment="center"
+                android:textColor="@color/colorButtonGradientDarkBlue"
+                android:layout_marginBottom="35dp"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_number_tl"
+                app:startIconDrawable="@drawable/ic_local_phone_black_24dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:hint="Phone Number"
+                app:hintTextColor="@color/colorButtonGradientDarkBlue"
+                android:textColorHint="#000"
+                app:boxStrokeColor="@color/colorButtonGradientDarkBlue"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_number_ti"
+                    android:textColor="@color/colorButtonGradientDarkBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_verify_phone"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_below="@+id/phone_number_tl"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:drawableEnd="@drawable/ic_baseline_check_24"
+                android:text="Verify"
+                android:textColor="#fff"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:translationZ="-1dp"
+        android:translationY="17dp"
+        android:layout_marginBottom="-70dp"
+        android:src="@drawable/otpgirlboywave"
+        />
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_gravity="top|end"
+        android:src="@drawable/doublecircle"
+        android:layout_height="130dp"
+        android:rotation="-90"
+        android:translationY="-40dp"
+        android:translationX="30dp"
+        ></ImageView>
+</FrameLayout>

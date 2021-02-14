@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".OtpFillFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:gravity="top"
+        android:translationY="70dp">
+
+        <TextView
+            android:id="@+id/txtOtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/montbold"
+            android:text="Verify OTP"
+            android:textAlignment="center"
+            android:textColor="@color/colorButtonGradientDarkBlue"
+            android:textSize="25sp" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/pin_view"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtOtp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="#5CEAEAEA"
+            android:textColor="@color/colorButtonGradientDarkBlue"
+            app:cursorColor="@color/colorPrimary"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="50dp"
+            app:itemRadius="5dp"
+            app:itemWidth="50dp"
+            app:lineColor="@color/colorAccent"
+            app:lineWidth="1dp" />
+
+        <Button
+            android:id="@+id/btn_verify_otp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/pin_view"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:text="Verify"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/btn_resend_otp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/btn_verify_otp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:enabled="false"
+            android:text="Resend"
+            android:textColor="#fff" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:src="@drawable/otpman"
+        android:layout_width="250dp"
+        android:translationZ="-1dp"
+        android:translationX="-60dp"
+        android:layout_gravity="bottom"
+        android:translationY="20dp"
+        android:layout_height="250dp" />
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_gravity="top|end"
+        android:src="@drawable/doublecircle"
+        android:layout_height="130dp"
+        android:rotation="-90"
+        android:translationY="-40dp"
+        android:translationX="30dp"
+        ></ImageView>
+</FrameLayout>

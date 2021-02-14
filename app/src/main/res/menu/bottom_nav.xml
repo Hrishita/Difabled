@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home_icon"
+        app:cnb_backgroundColor="@color/colorPrimary"/>
+
+    <item
+        android:id="@+id/chat"
+        android:title="Chat"
+        android:icon="@drawable/chat_icon"
+        app:cnb_backgroundColor="@color/colorPrimary"/>
+
+    <item
+        android:id="@+id/add_post"
+        android:title="Add post"
+        android:icon="@drawable/add_post_icon"
+        app:cnb_backgroundColor="@color/colorPrimary"/>
+
+    <item
+        android:id="@+id/detect"
+        android:title="Detect"
+        android:icon="@drawable/object_detect_icon"
+        app:cnb_backgroundColor="@color/colorPrimary"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/profile_icon"
+        app:cnb_backgroundColor="@color/colorPrimary"/>
+
+</menu>

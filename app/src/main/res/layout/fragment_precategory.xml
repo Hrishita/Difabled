@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".PreCategoryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+
+
+       android:background="@color/colorWhite"
+       android:layout_height="match_parent">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignTop="@id/gifImageView"
+           android:layout_centerHorizontal="true"
+           android:layout_marginStart="30dp"
+           android:layout_marginLeft="30dp"
+           android:id="@+id/txtability"
+           android:layout_marginTop="-80dp"
+           android:layout_marginRight="30dp"
+           android:fontFamily="@font/montbold"
+           android:text="My ablity is"
+           android:textAlignment="center"
+           android:textColor="@color/colorPrimary"
+           android:textSize="25sp">
+       </TextView>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/txtability"
+           android:layout_centerHorizontal="true"
+           android:layout_marginLeft="30dp"
+           android:id="@+id/txtstronger"
+           android:layout_marginRight="30dp"
+           android:fontFamily="@font/montbold"
+           android:text="STRONGER"
+           android:textStyle="bold"
+           android:textAlignment="center"
+           android:textColor="#240360"
+           android:textSize="30sp">
+       </TextView>
+
+       <TextView
+           android:id="@+id/txtthanmy"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/txtstronger"
+           android:layout_centerHorizontal="true"
+           android:fontFamily="@font/montbold"
+           android:text="than my"
+           android:textAlignment="center"
+           android:textColor="@color/colorPrimary"
+           android:textSize="25sp"></TextView>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/txtthanmy"
+           android:layout_centerHorizontal="true"
+           android:fontFamily="@font/montbold"
+           android:text="disablity"
+           android:id="@+id/txtdisablility"
+           android:textAlignment="center"
+           android:textColor="@color/colorPrimary"
+           android:textSize="25sp">
+       </TextView>
+       <ImageView
+           android:src="@drawable/halfcircle"
+           android:layout_width="130dp"
+           android:translationZ="-1dp"
+           android:translationY="-25dp"
+           android:layout_alignParentEnd="true"
+           android:rotation="130"
+           android:translationX="25dp"
+           android:layout_height="130dp" />
+       <pl.droidsonroids.gif.GifImageView
+           android:id="@+id/gifImageView"
+           android:layout_height="wrap_content"
+           android:layout_width="match_parent"
+           android:translationZ="-1dp"
+
+           android:translationY="120dp"
+           android:layout_alignParentBottom="true"
+           android:src="@drawable/catblindback"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+   </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "772467799972",
+    "project_id": "difabled-d74e9",
+    "storage_bucket": "difabled-d74e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772467799972:android:9d40285de15546786e3331",
+        "android_client_info": {
+          "package_name": "com.hrishita.difabled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772467799972-5erngsetrbgphcaa7ogh79slo2eh23hl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hrishita.difabled",
+            "certificate_hash": "aa7a19033af97cb603fb183eb21a422fa8bd62c4"
+          }
+        },
+        {
+          "client_id": "772467799972-prd0vl3ccucm68a2klnc9c4gnbleumjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzlql10u_Q7vUvY3Lklkq4PmT5iooSe9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772467799972-prd0vl3ccucm68a2klnc9c4gnbleumjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

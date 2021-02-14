@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RegisterProfileFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:translationY="-20dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_view_profile_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montbold"
+                android:text="Set Profile"
+                android:textAlignment="center"
+                android:textColor="@color/colorButtonGradientDarkBlue"
+                android:textSize="25sp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_my_image"
+                android:layout_below="@+id/text_view_profile_top"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/default_profile"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                app:civ_border_width="0dp"
+                app:civ_border_color="#3A3838"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_profile_name"
+                android:layout_below="@+id/profile_my_image"
+                android:hint="Enter Your Name"
+                app:startIconDrawable="@drawable/ic_person_black_24dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="10dp"
+                app:hintTextColor="@color/colorButtonGradientDarkBlue"
+                android:textColorHint="#000"
+                app:boxStrokeColor="@color/colorButtonGradientDarkBlue">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_name"
+                    android:textColor="@color/colorButtonGradientDarkBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_profile_handler"
+                android:layout_below="@+id/tl_profile_name"
+                android:hint="Handler"
+                app:startIconDrawable="@drawable/attherate"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="10dp"
+                app:hintTextColor="@color/colorButtonGradientDarkBlue"
+                android:textColorHint="#000"
+                app:boxStrokeColor="@color/colorButtonGradientDarkBlue">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_handler"
+                    android:textColor="@color/colorButtonGradientDarkBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_profile_status"
+                android:layout_below="@+id/tl_profile_handler"
+                android:hint="Enter Your Status"
+                app:startIconDrawable="@drawable/status"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="10dp"
+                app:hintTextColor="@color/colorButtonGradientDarkBlue"
+                android:textColorHint="#000"
+                app:boxStrokeColor="@color/colorButtonGradientDarkBlue">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_status"
+                    android:textColor="@color/colorButtonGradientDarkBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_profile_save"
+                android:layout_below="@+id/tl_profile_status"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:text="Save"
+                android:layout_marginBottom="5dp"
+                android:textColor="#fff"
+                 />
+
+            <Button
+                android:id="@+id/btn_profile_edit_number"
+                android:drawableStart="@drawable/ic_arrow_back_white_24dp"
+                android:layout_below="@+id/btn_profile_save"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:text="Edit Phone Number"
+                android:textColor="#fff"
+               />
+
+        </RelativeLayout>
+
+    </ScrollView>
+    <ImageView
+        android:src="@drawable/halfcircle"
+        android:layout_width="120dp"
+        android:translationZ="-1dp"
+        android:translationY="-12dp"
+        android:rotation="90"
+        android:layout_gravity="top|end"
+        android:layout_height="120dp" />
+    <ImageView
+        android:src="@drawable/doublecircle"
+        android:alpha="0.75"
+        android:layout_width="120dp"
+        android:translationZ="-1dp"
+        android:rotation="70"
+        android:translationY="18dp"
+        android:translationX="-18dp"
+        android:layout_gravity="bottom"
+        android:layout_height="120dp" />
+</FrameLayout>

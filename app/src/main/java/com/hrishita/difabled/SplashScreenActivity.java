@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +20,11 @@ public class SplashScreen extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finally {
-                    Intent intent=new Intent(SplashScreen.this,PreHomeScreen.class);
+                    Intent intent=new Intent(SplashScreenActivity.this, PreHomeScreenActivity.class);
                     startActivity(intent);
                     finish();
                 }
             }
-        });
+        }).start();
     }
 }
