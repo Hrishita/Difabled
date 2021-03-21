@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_my_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/ic_image_black_24dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#F30B0B"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/profile_name"
+        app:layout_constraintTop_toBottomOf="@+id/profile_my_image"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:hint="Enter Your Name"
+        android:background="@null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/profile_ll"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/profile_name"
+        >
+
+        <CheckBox
+            android:id="@+id/profile_mute"
+            android:layout_gravity="center"
+            android:text="mute"
+            android:padding="20dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/profile_deaf"
+            android:text="deaf"
+            android:padding="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/profile_normal"
+            android:layout_gravity="center"
+            android:text="normal"
+            android:padding="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/profile_btn_send"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/profile_ll"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:text="Save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/profile_send_request"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/profile_ll"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:text="Send Request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/profile_cancel_request"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/profile_send_request"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:text="Cancel Request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/profile_send_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/profile_deny_request"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:padding="20dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
+            android:layout_margin="20dp"
+            android:text="Deny Request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/profile_accept_request"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:padding="20dp"
+            android:background="@color/colorAccent"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="20dp"
+            android:text="Accept Request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/profile_remove_friend"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/profile_ll"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:text="Remove From Friends"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

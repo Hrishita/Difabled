@@ -26,7 +26,7 @@ public class GetProfileTask extends AsyncTask<String, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         dialog = new AlertDialog.Builder(context).setCancelable(false).setView(R.layout.loading).create();
-        dialog.show();
+        //dialog.show();
     }
 
     @Override
@@ -43,6 +43,7 @@ public class GetProfileTask extends AsyncTask<String, Void, String> {
         Request request = new Request.Builder().url(url).post(body).build();
         try {
             Response response = client.newCall(request).execute();
+
             return response.body().string();
         }
         catch (Exception e) {
@@ -54,8 +55,9 @@ public class GetProfileTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        System.out.println(s);
-        this.listener.takeProfile(s);
+        System.out.println("server response = 2" + s);
         dialog.dismiss();
+
+        this.listener.takeProfile(s);
     }
 }

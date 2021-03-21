@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hrishita.difabled">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT" /> -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +25,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppMaterialTheme">
-        <activity android:name=".PreHomeScreenActivity"></activity>
+        <activity android:name=".PreVideoCallActivity"></activity>
+        <activity android:name=".BlindHomeActivity" />
+
+        <meta-data
+            android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+            android:value="face" />
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".MyService" />
+
+        <receiver android:name=".RejectOrMuteListener">
+            <intent-filter>
+                <action android:name="com.hrishita.difabled.REJECT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.hrishita.difabled.MUTE" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".ChatNotificationService" />
+
+        <activity android:name=".TrycamActivity"></activity>
+        <activity android:name=".PreHomeScreenActivity" />
+        <activity android:name=".Textrec" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +62,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"> </activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".ChatActivity"
+            android:theme="@style/AppMaterialThemeAction" />
+        <activity android:name=".selectCategory" />
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/AppMaterialThemeAction" />
+        <activity
+            android:name=".PostCommentActivity"
+            android:theme="@style/AppMaterialThemeAction" />
+        <activity android:name=".ViewPostsActivity" />
+        <activity android:name=".UploadPostActivity" />
+        <activity android:name=".SelectContactActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".VideoCallDialActivity" />
+        <activity
+            android:name=".PhoneAuthActivity"
+            android:theme="@style/AppMaterialTheme" />
+        <activity android:name=".IncomingCall" />
+        <activity android:name=".FCMActivity" />
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".WebViewActivity" />
     </application>
 
 </manifest>

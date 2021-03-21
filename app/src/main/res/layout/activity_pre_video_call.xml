@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PreVideoCallActivity"
+    android:orientation="vertical"
+    android:weightSum="10"
+    >
+
+    <FrameLayout
+        android:layout_weight="5"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/pre_video_call_profile"
+            android:layout_gravity="center"
+            android:src="@drawable/default_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/pre_video_call_txt"
+            android:textSize="21sp"
+            android:layout_above="@+id/pre_video_call_end"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/montbold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:text="Ringing"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/pre_video_call_end"
+            android:tint="@color/colorWhite"
+            android:backgroundTint="#ff0000"
+            android:src="@drawable/ic_video_call_black_24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>

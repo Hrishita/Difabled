@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SelectIntrests">
+
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_interest_top"
+            android:text="What type of content would you like to see?"
+            android:layout_alignParentTop="true"
+            android:textAlignment="center"
+            android:layout_margin="40dp"
+            android:fontFamily="@font/montblack"
+            android:textSize="21sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/rl_si"
+            android:layout_below="@+id/txt_interest_top"
+            app:flexDirection="row"
+            app:flexWrap="wrap"
+            android:layout_centerInParent="true"
+            app:justifyContent="center"
+            app:alignItems="center"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <Button
+            android:id="@+id/btn_interest_continue"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="40dp"
+            android:layout_below="@+id/rl_si"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="40dp"
+            android:text="Continue"
+            android:textColor="#fff"
+            android:theme="@style/DarkTextButton" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HomeProfileStatView">
+        <attr name="stat_number" format="string" />
+        <attr name="stat_name" format="string" />
+    </declare-styleable>
+</resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PreCategoryFragment">
 
@@ -10,7 +11,7 @@
 
    <RelativeLayout
        android:layout_width="match_parent"
-
+        android:id="@+id/touchid"
 
        android:background="@color/colorWhite"
        android:layout_height="match_parent">

@@ -147,13 +147,13 @@ public class RegisterProfileFragment extends Fragment {
 
                             txtName.setText(strname);
 
-                            if (Constants.CATEGORY_MUTE.equals(strcat)) {
+                          /*  if (Constants.CATEGORY_MUTE.equals(strcat)) {
                                 strcat = Constants.CATEGORY_MUTE;
                             } else if (Constants.CATEGORY_BLIND.equals(strcat)) {
                                 strcat = Constants.CATEGORY_BLIND;
                             } else {
                                 strcat = Constants.CATEGORY_NORMAL;
-                            }
+                            }*/
 
                             if (!image_url.equals("DEFAULT")) {
                                 String remoteImageUrl = image_url;

@@ -9,5 +9,7 @@ class ProfileModel {
     String cat;
     Uri imageUri;
     String command;
+    String status;
+    String handler;
 
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".PhoneAuthActivity">
+
+    <RelativeLayout
+        android:id="@+id/phone_auth_base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/phone_auth_section_1"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<!--        <EditText-->
+<!--            android:id="@+id/phone_number_et"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:hint="PHONE NUMBER"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_send_otp"-->
+<!--            android:background="@drawable/buttongradient"-->
+<!--            android:textStyle="bold"-->
+<!--            android:fontFamily="@font/montbold"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:layout_below="@+id/phone_number_et"-->
+<!--            android:text="Verify Phone Number"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+
+    </RelativeLayout>
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/phone_auth_section_2"-->
+<!--        android:visibility="invisible"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/otp_et"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:hint="ENTER OTP"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_confirm_otp"-->
+
+<!--            app:layout_constraintTop_toBottomOf="@+id/otp_et"-->
+<!--            android:text="Confirm OTP"-->
+<!--            android:layout_below="@+id/otp_et"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+
+<!--    </RelativeLayout>-->
+
+</RelativeLayout>

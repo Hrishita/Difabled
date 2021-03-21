@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".NotificationFragment">
+
+    <TextView
+        android:id="@+id/notification_title"
+        android:textSize="21sp"
+        android:padding="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/montbold"
+        android:textStyle="bold"
+        android:text="Notifications"
+        android:textColor="@color/colorDarkInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_gravity="center"
+        app:singleSelection="true"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.chip.Chip
+            android:text="This Week"
+            app:chipBackgroundColor="@color/chip_selector"
+            android:textColor="@color/chip_selector_text"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:text="Last Month"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            android:textColor="@color/chip_selector_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:text="All time"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            android:textColor="@color/chip_selector_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/notifications_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notifications_rcv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

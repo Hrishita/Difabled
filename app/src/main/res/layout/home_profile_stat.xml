@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <TextView
+        android:fontFamily="@font/montbold"
+        android:textAlignment="center"
+        android:textColor="@color/colorButtonGradientDarkBlue"
+        android:textSize="28sp"
+        android:text="870"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:fontFamily="@font/montlight"
+        android:textAlignment="center"
+        android:textColor="@color/colorButtonGradientDarkBlue"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:text="Following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</merge>

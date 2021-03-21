@@ -26,9 +26,10 @@ public class RegisterTask extends AsyncTask<ProfileModel, Void, String> {
 
     @Override
     protected void onPreExecute() {
+        super.onPreExecute();
+
         dialog = new AlertDialog.Builder(context).setView(R.layout.loading).setCancelable(false).create();
         dialog.show();
-        super.onPreExecute();
     }
 
     @Override
@@ -39,8 +40,12 @@ public class RegisterTask extends AsyncTask<ProfileModel, Void, String> {
         final String uid = strings[0].uid;
         final String category = strings[0].cat;
         final String command = strings[0].command;
+        final String status = strings[0].status;
+        final String handler = strings[0].handler;
         final Uri profilePath = strings[0].imageUri;
 
+        System.out.println(status);
+        System.out.println(handler);
 
         OkHttpClient client = new OkHttpClient();
         RequestBody requestBody;
@@ -50,6 +55,8 @@ public class RegisterTask extends AsyncTask<ProfileModel, Void, String> {
                 .addFormDataPart("phone_number", phone_number)
                 .addFormDataPart("username", username)
                 .addFormDataPart("category", category)
+                .addFormDataPart("status", status)
+                .addFormDataPart("email", handler)
                 .addFormDataPart("uid", uid);
 
         if(command.equals(Constants.IMAGE_UPLOAD_NEW)) {
@@ -75,12 +82,12 @@ public class RegisterTask extends AsyncTask<ProfileModel, Void, String> {
                         .addFormDataPart("command", Constants.IMAGE_UPLOAD_EXISTING)
                         .addFormDataPart("profile_photo", "DEFAULT");
             }
-        } else if(command == Constants.IMAGE_UPLOAD_REMOVE) {
+        } else if(command.equals(Constants.IMAGE_UPLOAD_REMOVE)) {
             //remove
             multipartBuilder
                     .addFormDataPart("command", Constants.IMAGE_UPLOAD_REMOVE)
                     .addFormDataPart("profile_photo", "DEFAULT");
-        } else if(command == Constants.IMAGE_UPLOAD_EXISTING) {
+        } else if(command.equals(Constants.IMAGE_UPLOAD_EXISTING)) {
             multipartBuilder
                     .addFormDataPart("command", Constants.IMAGE_UPLOAD_EXISTING)
                     .addFormDataPart("profile_photo", "DEFAULT");
@@ -90,7 +97,9 @@ public class RegisterTask extends AsyncTask<ProfileModel, Void, String> {
         Request request = new Request.Builder().url(Constants.SERVER_ADDRESS + "/api/register").post(requestBody).build();
         try {
             Response r = client.newCall(request).execute();
-            return r.body().string();
+            String op = r.body().string();
+            System.out.println("op= " + op);
+            return op;
         } catch (Exception e) {
 
             e.printStackTrace();

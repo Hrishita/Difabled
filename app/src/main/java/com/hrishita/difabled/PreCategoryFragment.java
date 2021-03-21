@@ -13,17 +13,17 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -64,9 +64,11 @@ public class PreCategoryFragment extends Fragment {
   /*  private String mParam1;
     private String mParam2;*/
     String catConst;
+    SharedPreferences prefs;
+    RelativeLayout rid;
     private TextToSpeech tts;
     GifImageView gifImageView;
-    RelativeLayout tapview ;
+
     public PreCategoryFragment() {
         // Required empty public constructor
     }
@@ -106,20 +108,28 @@ public class PreCategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_precategory, container, false);
+       // viewid = v.findViewById(R.id.viewid);
+       // View view = inflater.inflate(R.layout.fragment_precategory, container, false);
+        prefs=getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
+       rid=v.findViewById(R.id.touchid);
         gifImageView = v.findViewById(R.id.gifImageView);
+
+        TextView txtStronger=v.findViewById(R.id.txtstronger);
+
+
         tts = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
-                    int result = tts.setLanguage(new Locale("hin","IND"));
+                    int result = tts.setLanguage(new Locale("Eng","IND"));
 
-                    tts.setSpeechRate(0.9f);
+                    tts.setSpeechRate(1.0f);
                     if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("TTS", "This Language is not supported");
                     }
-                    tts.setPitch(0.9f);
-
+                    tts.setPitch(1.0f);
+                    speak("Hello , welcome to the world of specially-abled people. Do you want to register as visually impaired person ? Tap on the screen and say yes or no.");
                 } else {
 
                     Log.e("TTS", "Initialization Failed!");
@@ -127,7 +137,7 @@ public class PreCategoryFragment extends Fragment {
             }
         });
 
-        Handler handler = new Handler();
+        /*Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -138,10 +148,19 @@ public class PreCategoryFragment extends Fragment {
                 gotoCategoryFragment(bundle);
 
             }
-        }, 2000);
+        }, 2000);*/
         // Inflate the layout for this fragment
+        rid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("kem palty");
+                speak(" ");
 
-        return inflater.inflate(R.layout.fragment_precategory, container, false);
+                listen();
+
+            }
+        });
+        return v;
 
     }
 
@@ -158,13 +177,33 @@ public class PreCategoryFragment extends Fragment {
     }
     private void recognition(String text){
 
-       /* if (text.contains("yes")|| text.contains("YES" )){
-            Bundle bundle = new Bundle();
-            bundle.putString("category", catConst);
-            System.out.println(catConst);
-            gotoCategoryFragment(bundle);
+       if (text.contains("yes")|| text.contains("yess" )||text.contains("yea")||text.contains("yeah")|| text.contains("ya")){
+          catConst=Constants.CATEGORY_BLIND;
 
-        }*/
+           SharedPreferences.Editor editor = prefs.edit();
+           editor.putString("category", Constants.CATEGORY_BLIND);
+           editor.commit();
+           Bundle bundle = new Bundle();
+           bundle.putString("category", catConst);
+           System.out.println(catConst);
+           gotoPhoneAuthFragment(bundle);
+
+        }
+       else{
+           if(text.contains("no")||text.contains("na")){
+               catConst=Constants.CATEGORY_MUTE_DEAF;
+               Bundle bundle = new Bundle();
+               bundle.putString("category", catConst);
+               System.out.println(catConst);
+               gotoCategoryFragment(bundle);
+           }
+           else{
+               speak(
+                       "please tap on the screen and speak yes if blind and no is not");
+
+           }
+
+       }
 
 
         }
@@ -179,6 +218,17 @@ public class PreCategoryFragment extends Fragment {
                 .replace(R.id.fragcontainer,frag, "select category")
                 .commit();
     }
+    private void gotoPhoneAuthFragment(Bundle bundle) {
+        PhoneAuthFragmentBlind frag = new PhoneAuthFragmentBlind();
+        frag.setArguments(bundle);
+        System.out.println(catConst);
+
+        ((PreHomeScreenActivity) getContext())
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragcontainer,frag, "Phone Auth")
+                .commit();
+    }
 
     private void listen(){
         Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -186,6 +236,7 @@ public class PreCategoryFragment extends Fragment {
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
 
         i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say something");
+
         try {
             startActivityForResult(i, 100);
         } catch (ActivityNotFoundException a) {
@@ -197,6 +248,7 @@ public class PreCategoryFragment extends Fragment {
         if (tts != null) {
             tts.stop();
             tts.shutdown();
+
         }
         super.onDestroy();
     }

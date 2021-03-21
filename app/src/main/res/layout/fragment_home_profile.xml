@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeProfileFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/profile_settings"
+            android:src="@drawable/ic_settings_black_24dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/hp_profile"
+        android:src="@drawable/default_profile"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+
+
+    <TextView
+        android:id="@+id/hp_name"
+        android:text="Loading"
+        android:textSize="25sp"
+        android:fontFamily="@font/montbold"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/hp_handler"
+        android:textSize="10sp"
+        android:textColor="@color/colorDarkInput"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/montlight"
+        android:text="\@Loading"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/hp_status"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/montlight"
+        android:text="Loading...Loading..Loading"
+        android:textAlignment="center" />
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/colorAccent"
+            app:borderWidth="0dp"
+            app:tint="@color/colorButtonGradientDarkBlue"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_share_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_edit_profile"
+            android:background="@drawable/capsule_button"
+            android:padding="5dp"
+            android:text="Edit Profile"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorAccent"
+            android:theme="@style/DarkTextButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:backgroundTint="@color/colorAccent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:borderWidth="0dp"
+            app:tint="@color/colorButtonGradientDarkBlue"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chat_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <com.hrishita.difabled.HomeProfileStatView
+            app:stat_name="Following"
+            app:stat_number="900K"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_gravity="center_vertical"
+            android:background="@color/colorLightGray"
+            android:layout_width="2dp"
+            android:layout_height="25dp" />
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.hrishita.difabled.HomeProfileStatView
+            app:stat_name="Followers"
+            app:stat_number="25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_gravity="center_vertical"
+            android:background="@color/colorLightGray"
+            android:layout_width="2dp"
+            android:layout_height="25dp" />
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <com.hrishita.difabled.HomeProfileStatView
+            android:id="@+id/hp_hpsv_posts"
+            app:stat_name="Posts"
+            app:stat_number="80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/hp_flex_posts"
+                app:justifyContent="center"
+                app:flexWrap="wrap"
+                app:flexDirection="row"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--<ImageView
+                    android:id="@+id/hp_temp_image"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:adjustViewBounds="true"
+                    app:layout_flexBasisPercent="30%"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:src="@drawable/test_post_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <ImageView
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    app:layout_flexBasisPercent="30%"
+                    android:src="@drawable/test_post_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <ImageView
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    app:layout_flexBasisPercent="30%"
+                    android:src="@drawable/test_post_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    app:layout_flexBasisPercent="30%"
+                    android:src="@drawable/test_post_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    app:layout_flexBasisPercent="30%"
+                    android:src="@drawable/test_post_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    app:layout_flexBasisPercent="30%"
+                    android:src="@drawable/test_post_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />-->
+
+            </com.google.android.flexbox.FlexboxLayout>
+    </LinearLayout>
+</ScrollView>

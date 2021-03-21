@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/img_met"
+        android:background="@drawable/small_fab"
+        android:padding="5dp"
+        android:layout_centerVertical="true"
+        app:tint="@color/colorAccent"
+        android:src="@drawable/ic_camera_alt_black_24dp"
+        android:layout_alignParentStart="true"
+        android:backgroundTint="@color/colorButtonGradientDarkBlue"
+        android:layout_width="36dp"
+        android:layout_height="36dp" />
+
+    <EditText
+        android:id="@+id/et_met"
+        android:padding="5dp"
+        android:maxLines="4"
+        android:background="@null"
+        android:hint="Message..."
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/img_met"
+        android:layout_toStartOf="@+id/send_met"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/send_met"
+        android:layout_marginEnd="5dp"
+        android:layout_centerVertical="true"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montbold"
+        android:textColor="@color/colorButtonGradientDarkBlue"
+        android:layout_alignParentEnd="true"
+        android:text="Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

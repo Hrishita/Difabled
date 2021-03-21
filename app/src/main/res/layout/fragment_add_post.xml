@@ -1,14 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:id="@+id/rl_add_post_parent"
     tools:context=".AddPostFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!--  app bar  -->
+    <RelativeLayout
+        android:id="@+id/add_post_app_bar"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <RelativeLayout
+            android:id="@+id/rl_add_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_add_post_close"
+                android:layout_centerVertical="true"
+                android:padding="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_close_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textColor="@color/colorDarkInput"
+                android:text="Select Images"
+                android:textSize="18sp"
+                android:fontFamily="@font/montbold"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:layout_toEndOf="@+id/img_add_post_close"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/add_post_next"
+                android:layout_marginEnd="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_forward_white_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/frag_add_post_img"
+            android:layout_below="@+id/rl_add_post"
+            android:adjustViewBounds="true"
+            android:src="@drawable/test_post_1"
+            android:scaleType="fitXY"
+            android:maxHeight="400dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+            <!--  Directory Selector & Image Grid  -->
+            <RelativeLayout
+                android:id="@+id/rl_add_post_draggable"
+                app:layout_behavior="@string/bottom_sheet_behavior"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <Spinner
+                    android:layout_alignParentStart="true"
+
+                    android:id="@+id/spinner_add_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <GridView
+                    android:id="@+id/frag_add_post_grid"
+                    android:layout_below="@+id/spinner_add_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="3"
+                    android:gravity="center"
+                     />
+
+            </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

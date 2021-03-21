@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/chat"
-        android:title="Chat"
+        android:title="Video call"
         android:icon="@drawable/chat_icon"
         app:cnb_backgroundColor="@color/colorPrimary"/>
 
@@ -21,7 +21,7 @@
 
     <item
         android:id="@+id/detect"
-        android:title="Detect"
+        android:title="Notifications"
         android:icon="@drawable/object_detect_icon"
         app:cnb_backgroundColor="@color/colorPrimary"/>
 

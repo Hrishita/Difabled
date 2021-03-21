@@ -25,4 +25,48 @@
         <item name="colorOnSurface">@color/colorButtonGradientDarkBlue</item>
 
     </style>
+    <style name="AppMaterialThemeAction" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorButtonGradientDarkBlue</item>
+        <item name="colorPrimaryDark">@color/colorButtonGradientDarkBlue</item>
+        <item name="colorAccent">@color/colorButtonGradientLightBlue</item>
+        <item name="android:textColor">@color/colorButtonGradientPurple</item>
+        <item name="colorOnSurface">@color/colorButtonGradientDarkBlue</item>
+        <item name="colorError">@color/colorButtonGradientCentre</item>
+
+    </style>
+    <style name="DarkTextInput" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorButtonGradientDarkBlue</item>
+        <item name="colorPrimaryDark">@color/colorButtonGradientPurple</item>
+        <item name="colorAccent">@color/colorButtonGradientLightBlue</item>
+    </style>
+
+    <style name="DarkTextButton" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorButtonGradientDarkBlue</item>
+        <item name="colorPrimaryDark">@color/colorButtonGradientPurple</item>
+        <item name="colorAccent">@color/colorButtonGradientLightBlue</item>
+        <item name="android:textColor">@color/colorButtonGradientPurple</item>
+
+        <item name="colorOnSurface">@color/colorButtonGradientDarkBlue</item>
+        <item name="colorError">@color/colorButtonGradientCentre</item>
+    </style>
+
+    <style name="BrightTextButton" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorButtonGradientCentre</item>
+        <item name="colorPrimaryDark">@color/colorButtonGradientPurple</item>
+        <item name="colorAccent">@color/colorButtonGradientLightBlue</item>
+        <item name="android:textColor">@color/colorButtonGradientPurple</item>
+
+        <item name="colorOnSurface">@color/colorButtonGradientDarkBlue</item>
+        <item name="colorError">@color/colorButtonGradientCentre</item>
+    </style>
+
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
 </resources>

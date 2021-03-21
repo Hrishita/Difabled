@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/colorDarkInput" xmlns:android="http://schemas.android.com/apk/res/android">
+        <item>
+            <selector>
+                <item>
+                    <shape>
+                        <solid android:color="@color/colorButtonGradientDarkBlue"/>
+                        <corners android:radius="25dp" />
+                    </shape>
+                </item>
+            </selector>
+        </item>
+</ripple>

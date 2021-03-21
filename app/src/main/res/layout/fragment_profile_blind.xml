@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ProfileFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:id="@+id/touchblind"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_view_profile_top"
+                android:textAlignment="center"
+                android:fontFamily="@font/montbold"
+                android:textSize="25sp"
+                android:textColor="@color/colorButtonGradientDarkBlue"
+                android:text="Enter Your Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_profile_name"
+                android:layout_below="@+id/text_view_profile_top"
+                android:hint="Enter Your Name"
+                app:startIconDrawable="@drawable/ic_person_black_24dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                app:hintTextColor="@color/colorButtonGradientDarkBlue"
+                android:textColorHint="#000"
+                app:boxStrokeColor="@color/colorButtonGradientDarkBlue">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_name"
+                    android:textColor="@color/colorButtonGradientDarkBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <Button
+                android:id="@+id/btn_profile_save"
+                android:layout_below="@+id/tl_profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:enabled="false"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:text="Continue"
+                android:textColor="#fff"
+                android:theme="@style/DarkTextButton" />
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+    <ImageView
+        android:src="@drawable/fand"
+        android:layout_width="120dp"
+        android:translationZ="-1dp"
+        android:translationY="-12dp"
+        android:rotation="90"
+        android:layout_gravity="top|end"
+        android:layout_height="120dp" />
+    <ImageView
+        android:src="@drawable/fand2"
+        android:alpha="0.75"
+        android:layout_width="120dp"
+        android:translationZ="-1dp"
+      android:rotation="70"
+        android:translationY="18dp"
+        android:translationX="-18dp"
+        android:layout_gravity="bottom"
+        android:layout_height="120dp" />
+</FrameLayout>

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "772467799972",
+    "firebase_url": "https://difabled-d74e9-default-rtdb.firebaseio.com",
     "project_id": "difabled-d74e9",
     "storage_bucket": "difabled-d74e9.appspot.com"
   },
@@ -14,11 +15,48 @@
       },
       "oauth_client": [
         {
-          "client_id": "772467799972-5erngsetrbgphcaa7ogh79slo2eh23hl.apps.googleusercontent.com",
+          "client_id": "772467799972-5n538ev62ebt0b0u6v048sahu091iq1r.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.hrishita.difabled",
-            "certificate_hash": "aa7a19033af97cb603fb183eb21a422fa8bd62c4"
+            "certificate_hash": "23e848305ff11eb33619456c786df5f1ab0c0654"
+          }
+        },
+        {
+          "client_id": "772467799972-prd0vl3ccucm68a2klnc9c4gnbleumjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzlql10u_Q7vUvY3Lklkq4PmT5iooSe9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772467799972-prd0vl3ccucm68a2klnc9c4gnbleumjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772467799972:android:ed54fdc7501035636e3331",
+        "android_client_info": {
+          "package_name": "org.tensorflow.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772467799972-6d8qr6t10soijv37aupads1fgp2clq1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.tensorflow.demo",
+            "certificate_hash": "23e848305ff11eb33619456c786df5f1ab0c0654"
           }
         },
         {
