@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:background="#fff"
     android:layout_height="match_parent"
-    tools:context=".selectCategory">
+    tools:context=".BlindMessage">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

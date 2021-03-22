@@ -74,6 +74,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             if (!mMessageData.get(position).isMessageRecvd) {
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 params.addRule(RelativeLayout.ALIGN_PARENT_END);
+
                 holder.image.setLayoutParams(params);
                 holder.image.setBackgroundResource(R.drawable.chat_bubble_sender);
             }

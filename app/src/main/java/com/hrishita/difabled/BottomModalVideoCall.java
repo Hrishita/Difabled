@@ -1,11 +1,14 @@
 package com.hrishita.difabled;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +31,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class BottomModalVideoCall extends BottomSheetDialogFragment
@@ -36,13 +40,13 @@ public class BottomModalVideoCall extends BottomSheetDialogFragment
     FirebaseAuth auth;
     Context context;
     HomeActivityInterface mInterface;
-
-    List<User> arrayList = new ArrayList<>();
+    List<FriendsModel> arrayList = new ArrayList<>();
     List<String> phoneNumbers = new ArrayList<>();
     FirebaseFirestore firebaseFirestore;
     ProgressBar progressBar;
     InstantVideoCallAdapter adapter;
-
+    //TextView noFriends;
+    HashMap<String, String> chatIds = new HashMap<>();
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +58,10 @@ public class BottomModalVideoCall extends BottomSheetDialogFragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.bottom_modal_video_call, container, false);
         progressBar = v.findViewById(R.id.bmvc_progress);
+        //noFriends = v.findViewById(R.id.bms_txt_no_friends);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
+
         firebaseFirestore= FirebaseFirestore.getInstance();
 
         RecyclerView recyclerView = v.findViewById(R.id.bmvc_rcv);
@@ -98,51 +104,81 @@ public class BottomModalVideoCall extends BottomSheetDialogFragment
                         }
                     }
                 }
-                firebaseFirestore.collection("users")
-                        .whereIn("phone", phoneNumbers)
-                        .get()
-                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                if(phoneNumbers.isEmpty())
+                {
+                    //noFriends.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                    return;
+                }
+                FirebaseDatabase.getInstance().getReference()
+                        .child("friend-request")
+                        .child(user.getPhoneNumber())
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
-                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                if(task.isComplete())
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for(DataSnapshot ds : snapshot.getChildren())
                                 {
-                                    System.out.println("Total Result Size = " + task.getResult().size());
-
-                                    for(DocumentSnapshot s : task.getResult().getDocuments())
+                                    String phone = ds.getKey();
+                                    System.out.println("phone = " + ds.child("type").getValue().toString());
+                                    String type =  ds.child("type").getValue().toString();
+                                    if(type!=null && type.equals(Constants.FIREBASE_FRIEND_REQUEST_ACCEPTED + ""))
                                     {
-                                        System.out.println("Inside id = " + s.getId());
-
-                                        String name= (String) s.get("name");
-                                        String email = (String) s.get("email");
-                                        String status = (String) s.get("status");
-                                        String category = (String) s.get("category");
-                                        String profile = (String) s.get("profile");
-                                        String phone = s.getId();
-
-                                        User u = new User();
-                                        u.setPhone(phone);
-                                        u.setStatus(status);
-                                        u.setProfile_link(profile);
-                                        u.setName(name);
-                                        u.setEmail(email);
-                                        u.setCategory(category);
-
-                                        arrayList.add(u);
+                                        String chat_id = (String) ds.child("chat_id").getValue();
+                                        if(chat_id!=null)
+                                        {
+                                            chatIds.put(phone, chat_id);
+                                        }
                                     }
-
-                                    if(((HomeActivity)getContext()) == null) return;
-                                    ((HomeActivity)getContext())
-                                            .runOnUiThread(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    progressBar.setVisibility(View.GONE);
-                                                    adapter.notifyDataSetChanged();
-                                                }
-                                            });
                                 }
+                                firebaseFirestore.collection("users")
+                                        .whereIn("phone", phoneNumbers)
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if(task.isComplete())
+                                                {
+                                                    for(DocumentSnapshot s : task.getResult().getDocuments())
+                                                    {
+                                                        String name= (String) s.get("name");
+                                                        String email = (String) s.get("email");
+                                                        String status = (String) s.get("status");
+                                                        String category = (String) s.get("category");
+                                                        String profile = (String) s.get("profile");
+                                                        String phone = s.getId();
+
+                                                        User u = new User();
+                                                        u.setPhone(phone);
+                                                        u.setStatus(status);
+                                                        u.setProfile_link(profile);
+                                                        u.setName(name);
+                                                        u.setEmail(email);
+                                                        u.setCategory(category);
+
+                                                        FriendsModel friendsModel = new FriendsModel(u, chatIds.get(phone));
+
+                                                        arrayList.add(friendsModel);
+                                                    }
+
+                                                    if(((HomeActivity)getContext()) == null) return;
+                                                    ((HomeActivity)getContext())
+                                                            .runOnUiThread(new Runnable() {
+                                                                @Override
+                                                                public void run() {
+                                                                    progressBar.setVisibility(View.GONE);
+                                                                    adapter.notifyDataSetChanged();
+                                                                }
+                                                            });
+                                                }
+                                            }
+                                        });
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
                             }
                         });
-
             }
 
             @Override

@@ -4,7 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="#fff"
+    android:id="@+id/taphere"
     android:layout_height="match_parent"
-    tools:context=".selectCategory">
-
+    tools:context=".BlindPost">
+<TextView
+    android:layout_width="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    android:id="@+id/txtcaption"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:layout_height="wrap_content"></TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.hrishita.difabled;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class InstantVideoCallAdapter extends RecyclerView.Adapter<com.hrishita.difabled.InstantVideoCallAdapter.MyHolder>
+public class InstantVideoCallAdapter extends RecyclerView.Adapter<InstantVideoCallAdapter.MyHolder>
 {
     Context context;
-    List<User> arrayList;
-    InstantVideoCallAdapter(Context context, List<User> arrayList)
+    List<FriendsModel> arrayList;
+    InstantVideoCallAdapter(Context context, List<FriendsModel> arrayList)
     {
         this.arrayList = arrayList;
         this.context = context;
@@ -36,13 +38,22 @@ public class InstantVideoCallAdapter extends RecyclerView.Adapter<com.hrishita.d
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        holder.name.setText(arrayList.get(position).getName());
+    public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
+        holder.name.setText(arrayList.get(position).getUser().getName());
         Picasso
                 .get()
-                .load(Constants.SERVER_ADDRESS + "/media/profile/"  + arrayList.get(position).getProfile_link())
+                .load(Constants.SERVER_ADDRESS + "/media/profile/"  + arrayList.get(position).getUser().getProfile_link())
                 .error(R.drawable.default_profile)
                 .into(holder.profile);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, PreVideoCallActivity.class);
+                i.putExtra("User", arrayList.get(position));
+                i.putExtra("chat_id", arrayList.get(position).getChat_id());
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override

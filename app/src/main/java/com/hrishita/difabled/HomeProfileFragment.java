@@ -342,10 +342,10 @@ public class HomeProfileFragment extends Fragment {
 
                             final ImageView imageView = new ImageView(getContext());
                             imageView.setAdjustViewBounds(true);
+
                             FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                            params.setFlexBasisPercent(0.3f);
-                            params.leftMargin = (int) getResources().getDimension(R.dimen.two_margin);
-                            params.rightMargin = (int) getResources().getDimension(R.dimen.two_margin);
+                            params.setFlexBasisPercent(0.33f);
+
                             params.topMargin = (int) getResources().getDimension(R.dimen.two_margin);
                             params.bottomMargin = (int) getResources().getDimension(R.dimen.two_margin);
 

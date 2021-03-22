@@ -37,7 +37,7 @@
                 android:id="@+id/message_image"
                 android:background="@drawable/chat_bubble_receiver"
                 android:layout_width="wrap_content"
-                android:maxWidth="100dp"
+                android:maxWidth="150dp"
                 android:adjustViewBounds="true"
                 android:layout_height="wrap_content"
                 android:padding="8dp"

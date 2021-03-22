@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home"
+        app:cnb_iconColor="@color/colorAccent"
+        app:cnb_textColor="#ffffff"
         android:title="Home"
         android:icon="@drawable/home_icon"
         app:cnb_backgroundColor="@color/colorPrimary"/>
@@ -10,17 +12,23 @@
     <item
         android:id="@+id/chat"
         android:title="Video call"
+        app:cnb_iconColor="@color/colorAccent"
+        app:cnb_textColor="#ffffff"
         android:icon="@drawable/chat_icon"
         app:cnb_backgroundColor="@color/colorPrimary"/>
 
     <item
         android:id="@+id/add_post"
+        app:cnb_iconColor="@color/colorAccent"
+        app:cnb_textColor="#ffffff"
         android:title="Add post"
         android:icon="@drawable/add_post_icon"
         app:cnb_backgroundColor="@color/colorPrimary"/>
 
     <item
         android:id="@+id/detect"
+        app:cnb_iconColor="@color/colorAccent"
+        app:cnb_textColor="#ffffff"
         android:title="Notifications"
         android:icon="@drawable/object_detect_icon"
         app:cnb_backgroundColor="@color/colorPrimary"/>
@@ -28,6 +36,8 @@
     <item
         android:id="@+id/profile"
         android:title="Profile"
+        app:cnb_iconColor="@color/colorAccent"
+        app:cnb_textColor="#ffffff"
         android:icon="@drawable/profile_icon"
         app:cnb_backgroundColor="@color/colorPrimary"/>
 

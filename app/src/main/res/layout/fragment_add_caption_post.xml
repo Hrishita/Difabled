@@ -76,6 +76,7 @@
     <ImageView
         android:translationX="-100px"
         android:translationY="100px"
+        android:translationZ="-10dp"
         android:layout_alignParentBottom="true"
         android:src="@drawable/ic_message_sent_2"
         android:layout_width="200dp"
@@ -87,6 +88,7 @@
         android:rotation="35"
         android:translationY="-120px"
         android:translationX="-120px"
+
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/fand"
@@ -97,6 +99,8 @@
         android:rotation="-45"
         android:translationY="100dp"
         android:translationX="100dp"
+
+        android:translationZ="-10dp"
         android:adjustViewBounds="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"

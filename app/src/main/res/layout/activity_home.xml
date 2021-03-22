@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinatorlayout"
     android:layout_width="match_parent"
+    android:background="#fff"
     android:layout_height="match_parent"
     android:orientation="vertical">
 <!--<RelativeLayout-->
@@ -62,6 +63,7 @@
         android:background="@drawable/round_corner_bottom_nav"
         app:cnb_unselectedColor="#000"
         app:cnb_radius="8dp"
+
         app:cnb_iconSize="24dp"
         app:cnb_orientationMode="horizontal"
         android:layout_margin="8dp"

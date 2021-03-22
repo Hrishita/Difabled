@@ -130,7 +130,7 @@ public class PostFragment extends Fragment implements HomeActivity.postFragmentC
             @Override
             public void onRefresh() {
                 arrayList.clear();
-                oldData.clear();
+                //oldData.clear();
                 arePostsAvailableOnServer = true;
                 new Thread(new Runnable() {
                     @Override
@@ -192,8 +192,8 @@ public class PostFragment extends Fragment implements HomeActivity.postFragmentC
                     OkHttpClient client = new OkHttpClient.Builder().writeTimeout(1, TimeUnit.MINUTES).readTimeout(1, TimeUnit.MINUTES).build();
                     String url = Constants.SERVER_ADDRESS + "/api/getpost/v2/";
                     String jsonBody = "{" +
-                            "\"start\":\"" + big + "\"," +
-                            "\"limit\":\"" + limit + "\"," +
+                            "\"start\":\"" + 0 + "\"," +
+                            "\"limit\":\"" + 100 + "\"," +
                             "\"uid\":\"" + uid + "\"" +
                             "}";
 
@@ -286,10 +286,10 @@ public class PostFragment extends Fragment implements HomeActivity.postFragmentC
 
                                 arrayList.add(completePostData);
                             }
-                            if(!arePostsAvailableOnServer) {
+                            /*if(!arePostsAvailableOnServer) {
                                 System.out.println("POST ARE NOT AVAILABLE");
                                 arrayList.addAll(oldData);
-                            }
+                            }*/
                             ((HomeActivity)getContext()).runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {

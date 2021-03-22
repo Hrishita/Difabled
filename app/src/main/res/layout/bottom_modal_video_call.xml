@@ -6,6 +6,7 @@
         android:textColor="@color/colorDarkInput"
         android:textStyle="bold"
         android:textSize="21sp"
+        android:background="#fff"
         android:fontFamily="@font/montbold"
         android:padding="10dp"
         android:text="Start a Video Call"

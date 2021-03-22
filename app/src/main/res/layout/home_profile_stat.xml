@@ -7,7 +7,7 @@
         android:textAlignment="center"
         android:textColor="@color/colorButtonGradientDarkBlue"
         android:textSize="28sp"
-        android:text="870"
+        android:text="90"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
