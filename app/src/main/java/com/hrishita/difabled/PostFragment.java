@@ -40,7 +40,6 @@ public class PostFragment extends Fragment implements HomeActivity.postFragmentC
     private SwipeRefreshLayout refreshLayout;
 
     private final int limit = 5;
-    private int big = 0;
 
     int lastViewedPost = 0;
     private boolean arePostsAvailableOnServer = true;
@@ -72,8 +71,7 @@ public class PostFragment extends Fragment implements HomeActivity.postFragmentC
 
         prefs = ((HomeActivity)getContext()).getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        big = prefs.getInt("big", 0);
-        System.out.println(big + " = big");
+        //big = prefs.getInt("big", 0);
 
         extract();
 
@@ -197,7 +195,6 @@ public class PostFragment extends Fragment implements HomeActivity.postFragmentC
                             "\"uid\":\"" + uid + "\"" +
                             "}";
 
-                    System.out.println("ordering data for offset " + big);
 
                     RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonBody);
 
@@ -211,12 +208,7 @@ public class PostFragment extends Fragment implements HomeActivity.postFragmentC
                         JSONArray result = jsonObject.getJSONArray("result");
 
                         if (type.equals("success")) {
-                            big = big + result.length();
                             arePostsAvailableOnServer = (result.length() >= limit);
-
-                            System.out.println("Got data of " + big);
-
-                            prefs.edit().putInt("big", big).commit();
 
                             for (int x = 0; x < result.length(); x++) {
                                 JSONObject object = result.getJSONObject(x);
@@ -259,8 +251,10 @@ public class PostFragment extends Fragment implements HomeActivity.postFragmentC
                                     likes.setUid(uid);
 
                                 }
-
-                                JSONArray images = object.getJSONArray("images");
+                                JSONArray images = new JSONArray();
+                                if(object.has("images"))
+                                if(!object.isNull("images"))
+                                {images = object.getJSONArray("images");}
                                 PostMedia[] postMedia = new PostMedia[images.length()];
                                 completePostData.images = "";
                                 StringBuilder sb = new StringBuilder("");
@@ -275,7 +269,10 @@ public class PostFragment extends Fragment implements HomeActivity.postFragmentC
                                     sb.append(",");
 
                                 }
-                                completePostData.images = sb.deleteCharAt(sb.length() - 1).toString();
+                                if(sb.length() > 0)
+                                    completePostData.images = sb.deleteCharAt(sb.length() - 1).toString();
+                                else
+                                    completePostData.images=null;
                                 completePostData.id = postId;
                                 completePostData.uid = uid;
                                 completePostData.caption = caption;

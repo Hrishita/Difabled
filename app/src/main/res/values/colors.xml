@@ -3,6 +3,15 @@
     <color name="colorPrimary">#4e67eb</color>
     <color name="colorPrimaryDark">#130A23</color>
     <color name="colorAccent">#f0f4ff</color>
+    <color name="semiTransparentColor1">#4D5E50E1</color>
+    <color name="semiTransparentColor2">#995648DA</color>
+    <color name="semiTransparentColor5">#602B608A</color>
+    <color name="tfe_semi_transparent">#66000000</color>
+    <color name="semiTransparentColor3">#99C3B0D6</color>
+    <color name="semiTransparentColor4">#9967ABD6</color>
+
+    <color name="purple">#5B36B7</color>
+    <color name="purpleHighlight">#DFD6F3</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorButtonGradientCentre">#FA5B4A</color>
     <color name="colorButtonGradientPurple">#5E50E1</color>

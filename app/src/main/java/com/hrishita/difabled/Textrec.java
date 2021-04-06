@@ -3,6 +3,7 @@ package com.hrishita.difabled;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.util.SparseArray;
@@ -23,6 +24,8 @@ import com.google.android.gms.vision.text.TextRecognizer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Textrec extends AppCompatActivity {
     SurfaceView cameraView;
@@ -30,7 +33,8 @@ public class Textrec extends AppCompatActivity {
     CameraSource cameraSource;
     final int RequestCameraPermissionID=1001;
     TextToSpeech textToSpeech;
-
+    Timer handler=new Timer();
+    StringBuilder stringBuilder=new StringBuilder();
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode)
@@ -60,7 +64,6 @@ public class Textrec extends AppCompatActivity {
         setContentView(R.layout.activity_txtrec);
         cameraView=findViewById(R.id.surface_view);
         textView=findViewById(R.id.text_view);
-
         textToSpeech=new TextToSpeech(com.hrishita.difabled.Textrec.this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int i) {
@@ -82,13 +85,12 @@ public class Textrec extends AppCompatActivity {
             cameraSource=new CameraSource.Builder(getApplicationContext(),textRecognizer)
             .setFacing(CameraSource.CAMERA_FACING_BACK)
                 .setRequestedPreviewSize(1280,1024)
-                .setRequestedFps(2.0f)
+                .setRequestedFps(0.3f)
                 .setAutoFocusEnabled(true)
                 .build();
             cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
                 @Override
                 public void surfaceCreated(SurfaceHolder surfaceHolder) {
-                    Toast.makeText(com.hrishita.difabled.Textrec.this, "Surface", Toast.LENGTH_LONG).show();
                     try {
                         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED)
                         {
@@ -128,25 +130,29 @@ public class Textrec extends AppCompatActivity {
                         textView.post(new Runnable() {
                             @Override
                             public void run() {
-                                StringBuilder stringBuilder=new StringBuilder();
+                                stringBuilder.delete(0, stringBuilder.length());
                                 for (int i=0;i<items.size();i++)
                                 {
                                     TextBlock item=items.valueAt(i);
                                     stringBuilder.append(item.getValue());
                                     stringBuilder.append("\n");
                                 }
-                                textView.setText(stringBuilder.toString());
-                                String text=stringBuilder.toString();
-                                textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
 
-                                ArrayList<String> arrayList=new ArrayList<String>();
-                                arrayList.add(text);
                             }
                         });
                     }
 
                 }
             });
+            handler.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    textView.setText(stringBuilder.toString());
+                    String text=stringBuilder.toString();
+                    textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
+                    Toast.makeText(Textrec.this, ""+text, Toast.LENGTH_SHORT).show();
+                }
+            },5000, 5000);
         }
 
     }

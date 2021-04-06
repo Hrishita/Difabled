@@ -281,7 +281,7 @@ public class TrycamActivity extends AppCompatActivity {
                                     }
 
                                     speak(img.getText()+" detected");
-
+                                    Toast.makeText(TrycamActivity.this, "detected = "+img.getText(), Toast.LENGTH_SHORT).show();
                                     System.out.println("detected = " + img.getText());
 
                                 }

@@ -151,7 +151,7 @@ public class HomeProfileFragment extends Fragment {
                     prefs.edit().putBoolean("editing", true).commit();
                     ProfileFragment frag = new ProfileFragment();
 
-                    ((PreHomeScreenActivity) getContext())
+                    ((HomeActivity) getContext())
                             .getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.home_activity_base,frag, "edit profile")
@@ -345,10 +345,10 @@ public class HomeProfileFragment extends Fragment {
 
                             FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                             params.setFlexBasisPercent(0.33f);
-
                             params.topMargin = (int) getResources().getDimension(R.dimen.two_margin);
                             params.bottomMargin = (int) getResources().getDimension(R.dimen.two_margin);
-
+                            params.setHeight(500);
+                            params.setWidth(500);
                             imageView.setLayoutParams(params);
                             ((HomeActivity)getContext())
                                      .runOnUiThread(new Runnable() {

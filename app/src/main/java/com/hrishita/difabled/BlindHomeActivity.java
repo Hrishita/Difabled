@@ -57,7 +57,7 @@ public class BlindHomeActivity extends AppCompatActivity {
     ScrollView tapid;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
-    MaterialCardView card1, card2, card3, card4, card5;
+    MaterialCardView card1, card2, card3, card4;
     SharedPreferences prefs;
     private String uid;
     int currentId;
@@ -77,7 +77,7 @@ public class BlindHomeActivity extends AppCompatActivity {
         card3 = findViewById(R.id.cardtextrec);
 
         card4 = findViewById(R.id.sendlocation);
-        card5 = findViewById(R.id.latestmessage);
+       // card5 = findViewById(R.id.latestmessage);
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,13 +106,13 @@ public class BlindHomeActivity extends AppCompatActivity {
                 listen();
             }
         });
-        card5.setOnClickListener(new View.OnClickListener() {
+       /* card5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 speak(" ");
                 listen();
             }
-        });
+        });*/
         /*tapid=findViewById(R.id.tapidblind);
             tapid.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -132,7 +132,7 @@ public class BlindHomeActivity extends AppCompatActivity {
                         Log.e("TTS", "This Language is not supported");
                     }
                     tts.setPitch(1.0f);
-                    speak("Tap on the screen and speak object detection to see nearby objects, speak check message to view all latest message, speak read text to read, and speak write post to add post");
+                    speak("Tap on the screen and speak object detection to see nearby objects, speak read text to read, speak help to send location to your near ones and speak write post to add post");
                 } else {
 
                     Log.e("TTS", "Initialization Failed!");
@@ -154,15 +154,11 @@ public class BlindHomeActivity extends AppCompatActivity {
             Intent it = new Intent(BlindHomeActivity.this, BlindPost.class);
             startActivity(it);
         }
-        if (text.contains("message")) {
 
-            Intent it = new Intent(BlindHomeActivity.this, ChatActivity.class);
-            it.putExtra("category", getIntent().getStringExtra("category"));
-
-            startActivity(it);
-        }
         if (text.contains("location") || text.contains("help")) {
-            ActivityCompat.requestPermissions(this,
+            Intent it = new Intent(BlindHomeActivity.this, BlindMessage.class);
+            startActivity(it);
+        /*    ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 101);
 
 
@@ -200,7 +196,7 @@ public class BlindHomeActivity extends AppCompatActivity {
             OnGPS();
         } else {
             getLocation();
-        }
+        }*/
         }
     }
 

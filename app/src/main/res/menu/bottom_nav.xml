@@ -14,7 +14,7 @@
         android:title="Video call"
         app:cnb_iconColor="@color/colorAccent"
         app:cnb_textColor="#ffffff"
-        android:icon="@drawable/chat_icon"
+        android:icon="@drawable/videocall"
         app:cnb_backgroundColor="@color/colorPrimary"/>
 
     <item

@@ -4,7 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="#fff"
+    android:id="@+id/helpid"
     android:layout_height="match_parent"
     tools:context=".BlindMessage">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="YOUR TEXT IS"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imgbackground"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:translationY="150dp"
+        android:translationZ="-1dp"
+        android:id="@+id/imgbackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/disableddddd"
+        android:layout_height="wrap_content" />
 </androidx.constraintlayout.widget.ConstraintLayout>

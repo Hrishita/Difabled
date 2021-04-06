@@ -31,9 +31,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PostCommentActivity extends AppCompatActivity {
     TextView caption;
     TextView name;
-    CircleImageView circleImageView;
+    ///CircleImageView circleImageView;
     CarouselView carouselView;
-    ImageView imgPayment, imgLike;
+  //  ImageView imgPayment, imgLike;
 
 
 
@@ -71,11 +71,12 @@ public class PostCommentActivity extends AppCompatActivity {
             }
         });
 
-        imgLike.setImageResource((post.liked ? R.drawable.ic_thumb_up_black_24dp_liked : R.drawable.ic_thumb_up_black_24dp));
+     //   imgLike.setImageResource((post.liked ? R.drawable.ic_thumb_up_black_24dp_liked : R.drawable.ic_thumb_up_black_24dp));
 
 
         caption.setText(post.caption);
         name.setText(post.name);
+/*
         imgLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,11 +97,14 @@ public class PostCommentActivity extends AppCompatActivity {
 
             }
         });
+*/
 
 
+/*
         Picasso.get()
                 .load(Constants.SERVER_ADDRESS + "/media/profile/" + post.profile_link)
                 .into(circleImageView);
+*/
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         adapter = new CommentAdapter(com.hrishita.difabled.PostCommentActivity.this, arrayList);
@@ -226,11 +230,11 @@ public class PostCommentActivity extends AppCompatActivity {
         caption =findViewById(R.id.caption_view_post);
         listView = findViewById(R.id.list_view_comments);
         comment = findViewById(R.id.edit_text_comment);
-        circleImageView = findViewById(R.id.profile_view_post);
+       // circleImageView = findViewById(R.id.profile_view_post);
         send=  findViewById(R.id.image_view_post_comment);
         carouselView = findViewById(R.id.carousel_view_post);
-        imgPayment = findViewById(R.id.payment_link_view_post);
-        imgLike = findViewById(R.id.view_post_like);
+      //  imgPayment = findViewById(R.id.payment_link_view_post);
+      //  imgLike = findViewById(R.id.view_post_like);
 
     }
 }

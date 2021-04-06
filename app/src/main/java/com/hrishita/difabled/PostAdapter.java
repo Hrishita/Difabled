@@ -40,25 +40,31 @@ public class PostAdapter extends RecyclerView.Adapter<PostHolder> {
         holder.name.setText(completePostData.name);
 
         Picasso.get().load((Constants.SERVER_ADDRESS + "/media/profile/" + completePostData.profile_link)).into(holder.profile);
-        System.out.println(completePostData.profile_link);
+        System.out.println(completePostData.images + " ");
 
-        if(completePostData.images !=null) {
-            final String[] myImages = Utils.convertStringToArray(completePostData.images, ",");
-
-            holder.carouselView.setPageCount(myImages.length);
-            holder.carouselView.setImageListener(new ImageListener() {
-                @Override
-                public void setImageForPosition(int position, ImageView imageView) {
-                    imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                    imageView.setFocusable(true);
-                    imageView.setClickable(true);
-                    TypedValue val = new TypedValue();
-                    context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground,val, true);
-                    imageView.setBackgroundResource(val.resourceId);
-                    Picasso.get().load((Constants.SERVER_ADDRESS + "/media/posts/" + myImages[position])).into(imageView);
-                }
-            });
+        if(completePostData.images == null || completePostData.images.equals(""))
+        {
+            holder.carouselView.setVisibility(View.GONE);
         }
+        else
+        {
+            final String[] myImages = Utils.convertStringToArray(completePostData.images, ",");
+                holder.carouselView.setVisibility(View.VISIBLE);
+                holder.carouselView.setPageCount(myImages.length);
+                holder.carouselView.setImageListener(new ImageListener() {
+                    @Override
+                    public void setImageForPosition(int position, ImageView imageView) {
+                        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                        imageView.setFocusable(true);
+                        imageView.setClickable(true);
+                        TypedValue val = new TypedValue();
+                        context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground,val, true);
+                        imageView.setBackgroundResource(val.resourceId);
+                        Picasso.get().load((Constants.SERVER_ADDRESS + "/media/posts/" + myImages[position])).into(imageView);
+                    }
+                });
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -14,7 +14,7 @@ public class Constants {
 
     public static int MAX_IMAGE_SIZE = 4096;
 
-    public static String SERVER_ADDRESS = "https://difabledwebservice.herokuapp.com";
+    public static String SERVER_ADDRESS = "https://difabledwebservicefinal.herokuapp.com/";
 //    public static String SERVER_ADDRESS = "http://192.168.0.108:3000";
 
     public static String ACTION_LIKE = "like";

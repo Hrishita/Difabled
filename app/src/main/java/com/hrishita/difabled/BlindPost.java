@@ -51,14 +51,13 @@ import java.util.Locale;
 import java.util.Map;
 
 public class BlindPost extends AppCompatActivity {
-    HomeActivityInterface mInterface;
-    CarouselView carouselView;
+
     TextView caption;
-    TextView share;
-    private ArrayList<String> arraylist;
+
+
     FirebaseUser user;
-    ConstraintLayout tapp;
-    String uid;
+    RelativeLayout tapp;
+
     TextView txt;
     Boolean shareflag=false;
     private TextToSpeech tts;
@@ -93,13 +92,14 @@ public class BlindPost extends AppCompatActivity {
                 speak(" ");
                 listen();
                 shareflag=true;
+                System.out.println("caled");
             }
         });
 
         tapp.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                listen();
+                listen(101);
                 return true;
 
             }
@@ -116,9 +116,25 @@ public class BlindPost extends AppCompatActivity {
 
     private void recognition(String text) {
         txt.setText(text);
-        speak("your post content is "+text+". long press on screen and speak share to post.");
-        if(text.equals("share")&& shareflag){
 
+        speak("your post content is "+text+". long press on screen and speak share to post.");
+        System.out.println("here");
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100) {
+            if (resultCode == -1 && null != data) {
+                ArrayList<String> res = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                String inSpeech = res.get(0);
+                recognition(inSpeech);
+            }
+        }
+        else if (requestCode == 101) {
+            if (resultCode == -1 && null != data) {
+                ArrayList<String> res = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                String inSpeech = res.get(0);
+                if(inSpeech.equals("share")&& shareflag){
                     if(caption.getText().toString().equals(""))
                     {
                         speak("Enter content for post");
@@ -146,6 +162,7 @@ public class BlindPost extends AppCompatActivity {
                                             UploadPostAsyncTask task1 = new UploadPostAsyncTask(BlindPost.this, new UploadPostAsyncTask.UploadPostCallback() {
                                                 @Override
                                                 public void uploadpostresult(String s) {
+                                                    System.out.println("content = " + s);
                                                     if(s == null) {
                                                         BlindPost.this.runOnUiThread(new Runnable() {
                                                             @Override
@@ -191,18 +208,7 @@ public class BlindPost extends AppCompatActivity {
                                 });
                     }
 
-        }
-
-
-    }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100) {
-            if (resultCode == -1 && null != data) {
-                ArrayList<String> res = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                String inSpeech = res.get(0);
-                recognition(inSpeech);
+                }
             }
         }
     }
@@ -216,6 +222,20 @@ public class BlindPost extends AppCompatActivity {
 
         try {
             startActivityForResult(i, 100);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(BlindPost.this, "Your device doesn't support Speech Recognition", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void listen(int rcCode) {
+        Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+
+        i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say something");
+
+        try {
+            startActivityForResult(i, rcCode);
         } catch (ActivityNotFoundException a) {
             Toast.makeText(BlindPost.this, "Your device doesn't support Speech Recognition", Toast.LENGTH_SHORT).show();
         }

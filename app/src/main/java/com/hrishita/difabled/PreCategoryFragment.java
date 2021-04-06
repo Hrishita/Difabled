@@ -153,6 +153,7 @@ public class PreCategoryFragment extends Fragment {
         rid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 System.out.println("kem palty");
                 speak(" ");
 
