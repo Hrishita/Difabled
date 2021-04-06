@@ -71,7 +71,7 @@ public class WebViewActivity extends AppCompatActivity {
         webView = findViewById(R.id.web_view);
 
         setUpWebViewDefaults();
-        webView.loadUrl("https://webrtctestdev.herokuapp.com/api/connect?video_call_id=" + mVideoCallId);
+        webView.loadUrl("https://difabledwebservicefinal.herokuapp.com/api/connect?video_call_id=" + mVideoCallId);
 //        webView.loadUrl("http://192.168.43.34:3000");
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -91,8 +91,8 @@ public class WebViewActivity extends AppCompatActivity {
                         // Below isn't necessary, however you might want to:
                         // 1) Check what the site is and perhaps have a blacklist
                         // 2) Have a pop up for the user to explicitly give permission
-                        if(request.getOrigin().toString().equals("https://webrtctestdev.herokuapp.com/") ||
-                                request.getOrigin().toString().equals("https://webrtctestdev.herokuapp.com/")) {
+                        if(request.getOrigin().toString().equals("https://difabledwebservicefinal.herokuapp.com/") ||
+                                request.getOrigin().toString().equals("https://difabledwebservicefinal.herokuapp.com/")) {
                             System.out.println("correct site");
                             request.grant(request.getResources());
                         } else {
@@ -151,7 +151,7 @@ public class WebViewActivity extends AppCompatActivity {
 //                "\"answering_party\":\"" + mNumber + "\"" +
 //                "}";
 //
-//        task.execute("https://webrtctestdev.herokuapp.com/api/answerCall", jsonBody);
+//        task.execute("https://difabledwebservicefinal.herokuapp.com/api/answerCall", jsonBody);
 
         VideoCallReceivedInformTask task = new VideoCallReceivedInformTask();
         task.execute(mNumber, mVideoCallId, remoteUser);

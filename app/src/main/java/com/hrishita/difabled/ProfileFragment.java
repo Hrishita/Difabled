@@ -90,7 +90,7 @@ public class ProfileFragment extends Fragment {
         if(user == null) {
             gotoLoginFragment();
         }
-        final AlertDialog dialog = new AlertDialog.Builder((HomeActivity)getContext())
+        final AlertDialog dialog = new AlertDialog.Builder((PreHomeScreenActivity)getContext())
                 .setView(R.layout.loading)
                 .setCancelable(false)
                 .create();
@@ -111,7 +111,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                final AlertDialog imgDialog = new AlertDialog.Builder(((HomeActivity)getContext()))
+                final AlertDialog imgDialog = new AlertDialog.Builder(((PreHomeScreenActivity)getContext()))
                         .setView(R.layout.profile_image_operations_dialog)
                         .setCancelable(false)
                         .create();
@@ -158,7 +158,7 @@ public class ProfileFragment extends Fragment {
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog dialog = new AlertDialog.Builder(((HomeActivity)getContext()))
+                AlertDialog dialog = new AlertDialog.Builder(((PreHomeScreenActivity)getContext()))
                         .setMessage("Are You Sure you want to edit number?")
                         .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                             @Override
@@ -250,7 +250,8 @@ public class ProfileFragment extends Fragment {
         }
     }
     private void gotoPreferencesFragment() {
-        ((HomeActivity) getContext())
+        ((PreHomeScreenActivity
+                ) getContext())
                 .getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragcontainer, new SelectIntrests(),"interests")
@@ -258,7 +259,7 @@ public class ProfileFragment extends Fragment {
     private void gotoCategoryFragment(Bundle bundle) {
         SelectCategoryFragment frag = new SelectCategoryFragment();
         frag.setArguments(bundle);
-        ((HomeActivity) getContext())
+        ((PreHomeScreenActivity) getContext())
                 .getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragcontainer,frag, "select category")
@@ -279,7 +280,7 @@ public class ProfileFragment extends Fragment {
                 ti_status.setText(status);
         }
             //load data from server
-            final GetProfileTask task = new GetProfileTask(((HomeActivity)getContext()), new GetProfileTask.ProfileReceivedListener() {
+            final GetProfileTask task = new GetProfileTask(((PreHomeScreenActivity)getContext()), new GetProfileTask.ProfileReceivedListener() {
                 @Override
                 public void takeProfile(String body) {
                     try {
@@ -326,7 +327,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void gotoLoginFragment() {
-        ((HomeActivity) getContext())
+        ((PreHomeScreenActivity) getContext())
                 .getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragcontainer,new PhoneAuthFragment(), "phone auth")
@@ -334,7 +335,7 @@ public class ProfileFragment extends Fragment {
     }
     private void uploadData() {
 
-        RegisterTask task = new RegisterTask(((HomeActivity) getContext()), new RegisterCallbackListener() {
+        RegisterTask task = new RegisterTask(((PreHomeScreenActivity) getContext()), new RegisterCallbackListener() {
             @Override
             public void registerCallback(String string) {
                 try {

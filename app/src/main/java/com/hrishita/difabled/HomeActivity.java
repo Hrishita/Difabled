@@ -1,5 +1,6 @@
 package com.hrishita.difabled;
 
+import android.app.ActionBar;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.hrishita.difabled.org.tensorflow.lite.examples.detection.DetectorActivity;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.util.ArrayList;
@@ -52,7 +54,8 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityInter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_language_black_24dp);// set drawable icon
+
+       getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_language_black_24dp);// set drawable icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -207,6 +210,7 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityInter
     }
 
     private void openPostFragment(boolean shouldContinue) {
+         // hideBottomNav();
         Bundle bundle = new Bundle();
         bundle.putString("uid", uid);
         bundle.putInt("current", lastViewedPost);
@@ -234,6 +238,12 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityInter
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+          if (item.getItemId()==android.R.id.home) {
+              Intent i = new Intent(com.hrishita.difabled.HomeActivity.this, DetectorActivity.class);
+              startActivity(i);
+
+          }
+
         if(item.getItemId() == R.id.top_menu_search)
         {
             getSupportFragmentManager()

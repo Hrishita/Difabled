@@ -217,7 +217,7 @@ public class MyService extends Service {
 //                "\"video_call_id\":\"" + video_call_id + "\"," +
 //                "\"ending_party\": \"" + phoneNumber + "\"" +
 //                "}";
-//        task.execute("https://webrtctestdev.herokuapp.com/api/endCall", jsonBody);
+//        task.execute("https://difabledwebservicefinal.herokuapp.com/api/endCall", jsonBody);
         stopForeground(true);
         stopSelf();
         if(defaultRingtone.isPlaying()) {

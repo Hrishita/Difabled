@@ -28,7 +28,7 @@ public class VideoCallAsyncTask extends AsyncTask<String, Void, Void> {
                 "\"id\":\"" + id + "\"" +
                 "}";
         RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonBody);
-        Request request = new Request.Builder().url("https://webrtctestdev.herokuapp.com/api/callUser").post(body).build();
+        Request request = new Request.Builder().url("https://difabledwebservicefinal.herokuapp.com/api/callUser").post(body).build();
 
         try {
             Response response = client.newCall(request).execute();
