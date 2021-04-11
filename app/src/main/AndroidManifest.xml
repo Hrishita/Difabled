@@ -79,6 +79,8 @@
         <activity android:name=".TrycamFinal" >
 
         </activity>
+        <activity android:name=".currency.ClassifierActivity"></activity>
+        <activity android:name=".currency.CameraActivity" />
         <activity android:name=".PreHomeScreenActivity" />
         <activity android:name=".Textrec" />
         <activity android:name=".SplashScreenActivity">
@@ -111,7 +113,6 @@
         <activity android:name=".FCMActivity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".org.tensorflow.lite.examples.detection.DetectorActivity"> </activity>
-    </application>
+     </application>
 
 </manifest>

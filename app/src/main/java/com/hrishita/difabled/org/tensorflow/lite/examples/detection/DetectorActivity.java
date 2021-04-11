@@ -440,6 +440,138 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   result.setLocation(location);
                   mappedRecognitions.add(result);
                 }
+                if(result.getTitle().equals("P")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("Q")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("R")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("S")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("T")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("U")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("V")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("W")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("X")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("Y")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("Z")){
+                  result.setTitle("Nice to meet you ");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
               }
             }
 

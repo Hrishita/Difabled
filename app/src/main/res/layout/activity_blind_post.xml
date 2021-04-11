@@ -5,11 +5,26 @@
     android:layout_width="match_parent"
     android:background="#fff"
     android:id="@+id/taphere"
+
     android:layout_height="match_parent"
     tools:context=".BlindPost">
-<TextView
+    <TextView
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:id="@+id/txtcaption"
+        android:gravity="center"
+        android:padding="20dp"
+        android:translationY="100dp"
+        android:layout_marginTop="22dp"
+        android:fontFamily="@font/montbold"
+        android:text="Tap on the screen and speak what you want to post"
+        android:layout_height="wrap_content"></TextView>
+<ImageView
     android:layout_width="wrap_content"
-    android:id="@+id/txtcaption"
-    android:layout_centerInParent="true"
-    android:layout_height="wrap_content"></TextView>
+    android:id="@+id/background"
+    android:alpha="0.7"
+    android:translationY="120dp"
+    android:src="@drawable/blindscreenwall"
+    android:layout_height="wrap_content"/>
 </RelativeLayout>

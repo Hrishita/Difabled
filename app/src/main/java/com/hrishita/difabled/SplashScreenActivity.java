@@ -67,14 +67,17 @@ public class SplashScreenActivity extends AppCompatActivity {
             if(user==null){
                 Intent intent=new Intent(SplashScreenActivity.this, PreHomeScreenActivity.class);
                 startActivity(intent);
+                finish();
+
             }
             else {
                 Intent intent;
                 intent = new Intent(SplashScreenActivity.this, HomeActivity.class);
                 startActivity(intent);
+                finish();
+
             }
         }
-
 
 
 

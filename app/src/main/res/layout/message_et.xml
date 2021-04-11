@@ -22,6 +22,7 @@
         android:maxLines="4"
         android:background="@null"
         android:hint="Message..."
+        android:textColor="@color/colorPrimary"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/img_met"
         android:layout_toStartOf="@+id/send_met"

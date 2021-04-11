@@ -97,8 +97,8 @@ public class MyService extends Service {
             Intent rejectIntent = new Intent(getApplicationContext(), RejectOrMuteListener.class);
             Intent muteIntent = new Intent(getApplicationContext(), RejectOrMuteListener.class);
 
-            rejectIntent.setAction("com.jayshreegopalapps.xmpptest.REJECT");
-            muteIntent.setAction("com.jayshreegopalapps.xmpptest.MUTE");
+            rejectIntent.setAction("com.hrishita.difabled.REJECT");
+            muteIntent.setAction("com.hrishita.difabled.MUTE");
 
             Bundle bundle1 = new Bundle();
             Bundle bundle2 = new Bundle();

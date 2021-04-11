@@ -1,6 +1,7 @@
 package com.hrishita.difabled;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,6 +29,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -89,12 +91,15 @@ public class HomeProfileFragment extends Fragment {
 
     @Override
     public void onAttach(@NonNull Context context) {
+
         super.onAttach(context);
         if(context instanceof HomeActivityInterface)
         {
             this.context= context;
             this.mInterface = (HomeActivityInterface) context;
             this.mInterface.hideAppBar();
+          //   this.mInterface.hideBottomNav();
+
         }
         else
         {
@@ -146,10 +151,11 @@ public class HomeProfileFragment extends Fragment {
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+              /*  ProfileFragment frag = new ProfileFragment();
+
                 System.out.println("state = " + currentState);
                 if(currentState == STATE_REQUEST_SELF) {
                     prefs.edit().putBoolean("editing", true).commit();
-                    ProfileFragment frag = new ProfileFragment();
 
                     ((HomeActivity) getContext())
                             .getSupportFragmentManager()
@@ -157,10 +163,10 @@ public class HomeProfileFragment extends Fragment {
                             .replace(R.id.home_activity_base,frag, "edit profile")
                             .commit();
 
-                  /*  Intent i = new Intent(getContext(), PhoneAuthActivity.class);
+                  *//*  Intent i = new Intent(getContext(), PhoneAuthActivity.class);
                     startActivity(i);
                     ((HomeActivity) getContext())
-                            .finish();*/
+                            .finish();*//*
                 }
                 else if(currentState == STATE_FRIENDS || currentState == STATE_REQUEST_SENT)
                 {
@@ -176,7 +182,31 @@ public class HomeProfileFragment extends Fragment {
                 }
             }
 
+        });*/
+                AlertDialog dialog = new AlertDialog.Builder(getContext()).setView(R.layout.loading).setCancelable(false).create();
+                dialog.show();
+                String phone = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+                FirebaseAuth.getInstance().signOut();
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic(phone.substring(1))
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                            }
+                        });
+
+                SelectCatFragment selectCatFragment=new SelectCatFragment();
+
+
+        Intent i = new Intent(getContext(), PreHomeScreenActivity.class);
+                startActivity(i);
+
+                ((HomeActivity)getContext()).finish();
+                dialog.dismiss();
+            }
         });
+
         return v;
     }
 

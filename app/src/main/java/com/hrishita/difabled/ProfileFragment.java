@@ -3,6 +3,7 @@ package com.hrishita.difabled;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -48,7 +50,7 @@ public class ProfileFragment extends Fragment {
     private Uri imageLocation;
     private String remoteImageUrl;
     private String imageAction = Constants.IMAGE_UPLOAD_EXISTING;
-
+    HomeActivityInterface homeActivityInterface;
     //states
     private static int STATE_REQUEST_RECVD = 0;
     private static int STATE_REQUEST_SENT = 1;
@@ -59,7 +61,7 @@ public class ProfileFragment extends Fragment {
     FirebaseUser user;
     private String requestedUserPhone = null;
     private int RC_PROFILE = 0;
-
+  //  Class<HomeActivity> appCompatActivity;
     private String uid;
     private String name;
     private String handler;
@@ -84,8 +86,8 @@ public class ProfileFragment extends Fragment {
 
         im_profileImage = v.findViewById(R.id.profile_my_image);
         btn_edit = v.findViewById(R.id.btn_profile_edit_number);
-
         user = FirebaseAuth.getInstance().getCurrentUser();
+
 
         if(user == null) {
             gotoLoginFragment();
@@ -195,6 +197,7 @@ public class ProfileFragment extends Fragment {
                     name = ti_name.getText().toString();
                     status = ti_status.getText().toString();
                     handler = ti_handler.getText().toString();
+
                     uploadData();
                    /* Bundle bundle = new Bundle();
                     bundle.putString("name", ti_name.getText().toString());
@@ -250,21 +253,21 @@ public class ProfileFragment extends Fragment {
         }
     }
     private void gotoPreferencesFragment() {
-        ((PreHomeScreenActivity
-                ) getContext())
-                .getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragcontainer, new SelectIntrests(),"interests")
-                .commit();}
-    private void gotoCategoryFragment(Bundle bundle) {
-        SelectCategoryFragment frag = new SelectCategoryFragment();
-        frag.setArguments(bundle);
-        ((PreHomeScreenActivity) getContext())
-                .getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragcontainer,frag, "select category")
-                .commit();
-    }
+
+            ((PreHomeScreenActivity) getContext())
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragcontainer, new SelectIntrests(),"interests")
+                    .commit();
+
+
+
+
+
+        }
+
+
+
 
     private void fillUI() {
         //check if data passed from other fragment
@@ -325,6 +328,21 @@ public class ProfileFragment extends Fragment {
             });
             task.execute(uid, user.getPhoneNumber());
     }
+    /*@Override
+    public void onAttach(@NonNull Context context) {
+
+        super.onAttach(context);
+        if(context instanceof HomeActivityInterface)
+        {
+           homeActivityInterface= (HomeActivityInterface) context;
+            homeActivityInterface.hideAppBar();
+
+        }
+        else
+        {
+            throw new ClassCastException("Implement Interface");
+        }
+    }*/
 
     private void gotoLoginFragment() {
         ((PreHomeScreenActivity) getContext())
@@ -335,72 +353,75 @@ public class ProfileFragment extends Fragment {
     }
     private void uploadData() {
 
-        RegisterTask task = new RegisterTask(((PreHomeScreenActivity) getContext()), new RegisterCallbackListener() {
-            @Override
-            public void registerCallback(String string) {
-                try {
-                    System.out.println("Profile Path server" + string);
 
-                    JSONObject jsonObject = new JSONObject(string);
-                    if(jsonObject.getString("type").equals("success")) {
+            RegisterTask task = new RegisterTask(((PreHomeScreenActivity) getContext()), new RegisterCallbackListener() {
+                @Override
+                public void registerCallback(String string) {
+                    try {
+                        System.out.println("Profile Path server" + string);
 
-                        String serverPath = jsonObject.getString("profile");
-                        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+                        JSONObject jsonObject = new JSONObject(string);
+                        if (jsonObject.getString("type").equals("success")) {
 
-                        Map<String, Object> fbData = new HashMap<>();
-                        fbData.put("name", name);
-                        fbData.put("handler", " ");
-                        fbData.put("status", " ");
-                        fbData.put("category", category);
-                        fbData.put("phone", user.getPhoneNumber());
-                        fbData.put("profile", serverPath);
+                            String serverPath = jsonObject.getString("profile");
+                            FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
-                        firebaseFirestore.collection("users")
-                                .document(user.getPhoneNumber())
-                                .set(fbData)
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                })
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        gotoPreferencesFragment();
-                                    }
-                                })
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
+                            Map<String, Object> fbData = new HashMap<>();
+                            fbData.put("name", name);
+                            fbData.put("handler", " ");
+                            fbData.put("status", " ");
+                            fbData.put("category", category);
+                            fbData.put("phone", user.getPhoneNumber());
+                            fbData.put("profile", serverPath);
 
-                                    }
-                                });
+                            firebaseFirestore.collection("users")
+                                    .document(user.getPhoneNumber())
+                                    .set(fbData)
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    })
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            gotoPreferencesFragment();
+                                        }
+                                    })
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+
+                                        }
+                                    });
 
 
+                        } else {
+                            Toast.makeText(getContext(), "Failed to upload Profile", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getContext(), "Failed to upload Profile", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
-            }
-        });
-        ProfileModel profileModel = new ProfileModel();
-        profileModel.name = name;
-        profileModel.cat = category;
-        profileModel.imageUri =null;
-        profileModel.command = imageAction;
-        profileModel.status = status;
-        profileModel.handler = handler;
-        profileModel.phoneNumber = user.getPhoneNumber();
+            });
+            ProfileModel profileModel = new ProfileModel();
+            profileModel.name = name;
+            profileModel.cat = category;
+            profileModel.imageUri = null;
+            profileModel.command = imageAction;
+            profileModel.status = status;
+            profileModel.handler = handler;
+            profileModel.phoneNumber = user.getPhoneNumber();
 //        while(!isUidInitialized) {
 ////            System.out.println(isUidInitialized + " : ");
 ////        }
-        profileModel.uid = uid;
+            profileModel.uid = uid;
        /* System.out.println("ud" + status);
         System.out.println("ud" + handler);*/
-        task.execute(profileModel);
+            task.execute(profileModel);
+        }
+
+
+
     }
-}

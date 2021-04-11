@@ -178,7 +178,10 @@ public class BlindPost extends AppCompatActivity {
                                                                 BlindPost.this.runOnUiThread(new Runnable() {
                                                                     @Override
                                                                     public void run() {
+                                                                        speak("upload successful");
                                                                         Toast.makeText(BlindPost.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+                                                                        Intent intent=new Intent(BlindPost.this,BlindHomeActivity.class);
+                                                                        startActivity(intent);
                                                                     }
                                                                 });
                                                             } else {
@@ -261,7 +264,7 @@ public class BlindPost extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        speak(" ");
+    //    speak(" ");
         super.onResume();
     }
 
@@ -273,7 +276,7 @@ public class BlindPost extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
-        speak(" ");
+     //   speak(" ");
         super.onRestart();
     }
     private void extract() {

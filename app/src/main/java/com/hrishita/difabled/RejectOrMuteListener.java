@@ -15,7 +15,7 @@ public class RejectOrMuteListener extends BroadcastReceiver {
             System.out.println(notificationId + "");
             String action = intent.getAction();
             if (action != null) {
-                if(action.equals("com.jayshreegopalapps.xmpptest.REJECT")) {
+                if(action.equals("com.hrishita.difabled.REJECT")) {
                     //reject call
                     System.out.println("REJECT call");
                     Intent i = new Intent(context, MyService.class);

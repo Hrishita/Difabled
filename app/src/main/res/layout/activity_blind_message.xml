@@ -1,30 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="#fff"
+    android:layout_gravity="center_horizontal"
     android:id="@+id/helpid"
     android:layout_height="match_parent"
     tools:context=".BlindMessage">
-
+    <ImageView
+        android:layout_width="200dp"
+        android:src="@drawable/halfcircle"
+        android:layout_height="200dp"
+        android:rotation="135"
+        android:translationZ="-1dp"
+        android:translationY="-50dp"
+        android:translationX="220dp"
+        ></ImageView>
     <TextView
         android:layout_width="wrap_content"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="YOUR TEXT IS"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/imgbackground"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:fontFamily="@font/montbold"
+        android:textSize="22sp"
+        android:id="@+id/textif"
+        android:textColor="@color/colorButtonGradientPurple"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Enter emergency number. A message along with your current location will be sent on that number."
+        android:foregroundGravity="center"
+        android:layout_marginTop="100dp"
         android:layout_height="wrap_content" />
+
     <ImageView
-        android:layout_width="wrap_content"
-        android:translationY="150dp"
-        android:translationZ="-1dp"
         android:id="@+id/imgbackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/disableddddd"
-        android:layout_height="wrap_content" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:translationY="200dp"
+        android:translationZ="-1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</RelativeLayout>

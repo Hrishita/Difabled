@@ -1,53 +1,37 @@
 package com.hrishita.difabled;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.Manifest.permission;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Criteria;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
-import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.hrishita.difabled.currency.ClassifierActivity;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -144,6 +128,11 @@ public class BlindHomeActivity extends AppCompatActivity {
     private void recognition(String text) {
         if (text.contains("object") || text.contains("detect")) {
             Intent it = new Intent(BlindHomeActivity.this, TrycamActivity.class);
+            startActivity(it);
+        }
+        if(text.contains("currency")||text.contains("money")||text.contains("identify"))
+        {
+            Intent it = new Intent(BlindHomeActivity.this, ClassifierActivity.class);
             startActivity(it);
         }
         if (text.contains("read") || text.contains("text")) {

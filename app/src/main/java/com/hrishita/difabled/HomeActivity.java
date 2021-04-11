@@ -148,6 +148,7 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityInter
                                 .commit();
                         break;
                     case R.id.profile:
+                      //  hideBottomNav();
                         //selectedFragment = new NotificationShowFragment();
                         getSupportFragmentManager()
                                 .beginTransaction()

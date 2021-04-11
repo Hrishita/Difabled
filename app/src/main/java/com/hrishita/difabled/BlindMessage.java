@@ -26,6 +26,7 @@ import android.speech.tts.TextToSpeech;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -54,7 +55,7 @@ public class BlindMessage extends AppCompatActivity {
     LocationManager locationManager;
     String latitude, longitude;
     SmsManager smsManager;
-    ConstraintLayout id;
+    RelativeLayout id;
     String number= "";
     Location mLocation;
     interface Foo {
@@ -86,8 +87,9 @@ public class BlindMessage extends AppCompatActivity {
                                 // Logic to handle location object
                                 Toast.makeText(BlindMessage.this, "Location = " + location.getLatitude() + " " + location.getLongitude(), Toast.LENGTH_SHORT).show();
                                smsManager = SmsManager.getDefault();
+                                speak("Tap on the screen and enter number to send emergency message");
 
-                                speak("Enter the number");
+                              //  speak("Enter the number");
                                 id.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -121,7 +123,6 @@ public class BlindMessage extends AppCompatActivity {
                         Log.e("TTS", "This Language is not supported");
                     }
                     tts.setPitch(1.0f);
-                    speak("Tap on the screen and speak object detection to see nearby objects, speak read text to read, speak help to send location to your near ones and speak write post to add post");
                 } else {
 
                     Log.e("TTS", "Initialization Failed!");
@@ -187,7 +188,8 @@ public class BlindMessage extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        speak(" ");
+       //
+        // speak(" ");
         super.onResume();
     }
 
