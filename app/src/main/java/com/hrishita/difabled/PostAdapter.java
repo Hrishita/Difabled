@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.exifinterface.media.ExifInterface;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.ImageListener;
 
@@ -57,10 +59,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostHolder> {
                         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
                         imageView.setFocusable(true);
                         imageView.setClickable(true);
+                      //  imageView.setRotation(ExifInterface.ORIENTATION_ROTATE_90);
                         TypedValue val = new TypedValue();
                         context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground,val, true);
                         imageView.setBackgroundResource(val.resourceId);
-                        Picasso.get().load((Constants.SERVER_ADDRESS + "/media/posts/" + myImages[position])).into(imageView);
+                        Glide.with(context).load((Constants.SERVER_ADDRESS + "/media/posts/" + myImages[position])).into(imageView);
+                       // Picasso.get().load((Constants.SERVER_ADDRESS + "/media/posts/" + myImages[position])).into(imageView);
                     }
                 });
         }

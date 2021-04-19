@@ -140,13 +140,13 @@
                 android:layout_height="20dp"
                 android:src="@drawable/ic_thumb_up_black_24dp" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/like_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="0"
-                android:textSize="15sp" />
+                android:textSize="15sp" />-->
         </LinearLayout>
     <LinearLayout
         android:clickable="true"
@@ -161,13 +161,13 @@
             android:id="@+id/comment_view_post"
             android:layout_height="wrap_content"
             android:src="@drawable/comment_button" />
-        <TextView
+       <!-- <TextView
             android:id="@+id/comment_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
             android:layout_marginLeft="10dp"
-            android:textSize="15sp"/>
+            android:textSize="15sp"/>-->
     </LinearLayout>
 
         <LinearLayout
@@ -184,13 +184,13 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/share_button" />
 
-            <TextView
+           <!-- <TextView
                 android:id="@+id/share_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="1"
-                android:textSize="15sp" />
+                android:textSize="15sp" />-->
         </LinearLayout>
 
 

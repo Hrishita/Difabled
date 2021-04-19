@@ -26,6 +26,7 @@ import android.speech.tts.TextToSpeech;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -57,6 +58,7 @@ public class BlindMessage extends AppCompatActivity {
     SmsManager smsManager;
     RelativeLayout id;
     String number= "";
+    ImageView img;
     Location mLocation;
     interface Foo {
         void bar(String x);
@@ -70,7 +72,7 @@ public class BlindMessage extends AppCompatActivity {
                 new String[]{
                         Manifest.permission.ACCESS_FINE_LOCATION}, 101);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
+img=findViewById(R.id.imgbackground);
         FusedLocationProviderClient fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         if (ActivityCompat.checkSelfPermission(
                 BlindMessage.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
@@ -90,7 +92,7 @@ public class BlindMessage extends AppCompatActivity {
                                 speak("Tap on the screen and enter number to send emergency message");
 
                               //  speak("Enter the number");
-                                id.setOnClickListener(new View.OnClickListener() {
+                                img.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         listen();

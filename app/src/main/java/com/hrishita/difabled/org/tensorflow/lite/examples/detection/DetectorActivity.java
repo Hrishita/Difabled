@@ -239,7 +239,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   mappedRecognitions.add(result);
                 }
                 if (result.getTitle().equals("B")){
-                  result.setTitle("Good bye");
+                  result.setTitle("how are you");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -262,54 +262,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   result.setLocation(location);
                   mappedRecognitions.add(result);
                 }
-                if(result.getTitle().equals("A")){
-                  result.setTitle("Hello");
 
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
-                if (result.getTitle().equals("B")){
-                  result.setTitle("Good bye");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
-                if (result.getTitle().equals("C")){
-                  result.setTitle("Help");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                } if(result.getTitle().equals("D")){
-                  result.setTitle("Nice to meet you ");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
-                if (result.getTitle().equals("E")){
+                if(result.getTitle().equals("G")){
                   result.setTitle("I am fine");
 
                   canvas.drawRect(location, paint);
@@ -321,90 +275,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   result.setLocation(location);
                   mappedRecognitions.add(result);
                 }
-                if (result.getTitle().equals("F")){
-                  result.setTitle("how are you?");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                } if(result.getTitle().equals("G")){
-                  result.setTitle("Sorry");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
                 if (result.getTitle().equals("H")){
-                  result.setTitle(" bye");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
-                if (result.getTitle().equals("I")){
-                  result.setTitle("Excuse me");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
-                if(result.getTitle().equals("J")){
-                  result.setTitle("Happy");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
-                if (result.getTitle().equals("K")){
-                  result.setTitle("Sad");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
-                if (result.getTitle().equals("L")){
-                  result.setTitle("I am ILL");
-
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
-                if(result.getTitle().equals("M")){
                   result.setTitle("Contact me later");
 
                   canvas.drawRect(location, paint);
@@ -416,8 +287,67 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   result.setLocation(location);
                   mappedRecognitions.add(result);
                 }
+                if (result.getTitle().equals("I")){
+                  result.setTitle("i am busy");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                } if(result.getTitle().equals("J")){
+                  result.setTitle("talk to you later");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if (result.getTitle().equals("K")){
+                  result.setTitle("yes");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if (result.getTitle().equals("L")){
+                  result.setTitle("Nice to meet you");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
+                if(result.getTitle().equals("M")){
+                  result.setTitle("I am hungry");
+
+                  canvas.drawRect(location, paint);
+                  String text = result.getTitle();
+                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                  speak(text);
+                  cropToFrameTransform.mapRect(location);
+
+                  result.setLocation(location);
+                  mappedRecognitions.add(result);
+                }
                 if (result.getTitle().equals("N")){
-                  result.setTitle("I am busy");
+                  result.setTitle("I need water");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -429,7 +359,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   mappedRecognitions.add(result);
                 }
                 if (result.getTitle().equals("O")){
-                  result.setTitle("Today");
+                  result.setTitle("Ok");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -441,7 +371,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   mappedRecognitions.add(result);
                 }
                 if(result.getTitle().equals("P")){
-                  result.setTitle("Nice to meet you ");
+                  result.setTitle("I am ill");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -452,8 +382,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   result.setLocation(location);
                   mappedRecognitions.add(result);
                 }
-                if(result.getTitle().equals("Q")){
-                  result.setTitle("Nice to meet you ");
+                if (result.getTitle().equals("Q")){
+                  result.setTitle("No");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -464,8 +394,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   result.setLocation(location);
                   mappedRecognitions.add(result);
                 }
-                if(result.getTitle().equals("R")){
-                  result.setTitle("Nice to meet you ");
+                if (result.getTitle().equals("R")){
+                  result.setTitle("All the best");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -476,20 +406,9 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   result.setLocation(location);
                   mappedRecognitions.add(result);
                 }
-                if(result.getTitle().equals("S")){
-                  result.setTitle("Nice to meet you ");
 
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
                 if(result.getTitle().equals("T")){
-                  result.setTitle("Nice to meet you ");
+                  result.setTitle("Happy");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -500,20 +419,10 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   result.setLocation(location);
                   mappedRecognitions.add(result);
                 }
-                if(result.getTitle().equals("U")){
-                  result.setTitle("Nice to meet you ");
 
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
 
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
                 if(result.getTitle().equals("V")){
-                  result.setTitle("Nice to meet you ");
+                  result.setTitle("good");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -525,7 +434,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   mappedRecognitions.add(result);
                 }
                 if(result.getTitle().equals("W")){
-                  result.setTitle("Nice to meet you ");
+                  result.setTitle("bad");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -537,7 +446,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   mappedRecognitions.add(result);
                 }
                 if(result.getTitle().equals("X")){
-                  result.setTitle("Nice to meet you ");
+                  result.setTitle("what is the time");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -549,7 +458,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   mappedRecognitions.add(result);
                 }
                 if(result.getTitle().equals("Y")){
-                  result.setTitle("Nice to meet you ");
+                  result.setTitle("Bye");
 
                   canvas.drawRect(location, paint);
                   String text = result.getTitle();
@@ -560,18 +469,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   result.setLocation(location);
                   mappedRecognitions.add(result);
                 }
-                if(result.getTitle().equals("Z")){
-                  result.setTitle("Nice to meet you ");
+               
 
-                  canvas.drawRect(location, paint);
-                  String text = result.getTitle();
-                  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
-                  speak(text);
-                  cropToFrameTransform.mapRect(location);
-
-                  result.setLocation(location);
-                  mappedRecognitions.add(result);
-                }
               }
             }
 

@@ -24,6 +24,7 @@
         android:fontFamily="@font/montbold"
         android:textSize="22sp"
         android:id="@+id/textif"
+        android:padding="10dp"
         android:textColor="@color/colorButtonGradientPurple"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"

@@ -151,7 +151,7 @@ public class HomeProfileFragment extends Fragment {
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              /*  ProfileFragment frag = new ProfileFragment();
+                ProfileFragment frag = new ProfileFragment();
 
                 System.out.println("state = " + currentState);
                 if(currentState == STATE_REQUEST_SELF) {
@@ -163,10 +163,10 @@ public class HomeProfileFragment extends Fragment {
                             .replace(R.id.home_activity_base,frag, "edit profile")
                             .commit();
 
-                  *//*  Intent i = new Intent(getContext(), PhoneAuthActivity.class);
+                  /*Intent i = new Intent(getContext(), PhoneAuthActivity.class);
                     startActivity(i);
                     ((HomeActivity) getContext())
-                            .finish();*//*
+                            .finish();*/
                 }
                 else if(currentState == STATE_FRIENDS || currentState == STATE_REQUEST_SENT)
                 {
@@ -182,8 +182,8 @@ public class HomeProfileFragment extends Fragment {
                 }
             }
 
-        });*/
-                AlertDialog dialog = new AlertDialog.Builder(getContext()).setView(R.layout.loading).setCancelable(false).create();
+
+               /* AlertDialog dialog = new AlertDialog.Builder(getContext()).setView(R.layout.loading).setCancelable(false).create();
                 dialog.show();
                 String phone = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
                 FirebaseAuth.getInstance().signOut();
@@ -194,17 +194,17 @@ public class HomeProfileFragment extends Fragment {
                             public void onComplete(@NonNull Task<Void> task) {
 
                             }
-                        });
+                        });*/
 
-                SelectCatFragment selectCatFragment=new SelectCatFragment();
+        /*        SelectCatFragment selectCatFragment=new SelectCatFragment();
 
 
         Intent i = new Intent(getContext(), PreHomeScreenActivity.class);
                 startActivity(i);
 
                 ((HomeActivity)getContext()).finish();
-                dialog.dismiss();
-            }
+                dialog.dismiss();*/
+
         });
 
         return v;

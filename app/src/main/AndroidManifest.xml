@@ -79,6 +79,9 @@
         <activity android:name=".TrycamFinal" >
 
         </activity>
+        
+        <activity android:name=".org.tensorflow.lite.examples.detection.CameraActivity"></activity>
+        <activity android:name=".org.tensorflow.lite.examples.detection.DetectorActivity"></activity>
         <activity android:name=".currency.ClassifierActivity"></activity>
         <activity android:name=".currency.CameraActivity" />
         <activity android:name=".PreHomeScreenActivity" />

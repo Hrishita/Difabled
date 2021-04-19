@@ -150,9 +150,9 @@ public class Textrec extends AppCompatActivity {
                     textView.setText(stringBuilder.toString());
                     String text=stringBuilder.toString();
                     textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
-                 //   Toast.makeText(Textrec.this, ""+text, Toast.LENGTH_SHORT).show();
                 }
             },5000, 5000);
+
         }
 
     }
